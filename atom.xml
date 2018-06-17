@@ -32,7 +32,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="Linux" scheme="http://23171580.github.io/tags/Linux/"/>
@@ -57,7 +57,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="Anaconda" scheme="http://23171580.github.io/tags/Anaconda/"/>
@@ -82,7 +82,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="bcompare" scheme="http://23171580.github.io/tags/bcompare/"/>
@@ -107,7 +107,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="书签导出HTML" scheme="http://23171580.github.io/tags/%E4%B9%A6%E7%AD%BE%E5%AF%BC%E5%87%BAHTML/"/>
@@ -132,7 +132,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="ubuntu" scheme="http://23171580.github.io/tags/ubuntu/"/>
@@ -157,7 +157,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="windows" scheme="http://23171580.github.io/tags/windows/"/>
@@ -182,7 +182,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="ESP8266" scheme="http://23171580.github.io/tags/ESP8266/"/>
@@ -209,7 +209,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="ESP8266" scheme="http://23171580.github.io/tags/ESP8266/"/>
@@ -240,7 +240,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="Linux" scheme="http://23171580.github.io/tags/Linux/"/>
@@ -265,7 +265,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="ubuntu" scheme="http://23171580.github.io/tags/ubuntu/"/>
@@ -292,7 +292,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="OV摄像头" scheme="http://23171580.github.io/tags/OV%E6%91%84%E5%83%8F%E5%A4%B4/"/>
@@ -317,7 +317,7 @@
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="Ubuntu" scheme="http://23171580.github.io/tags/Ubuntu/"/>
@@ -347,7 +347,7 @@ update-alternatives --install /usr/bin/javac javac /usr/local/jdk1.6.0_38/bin/ja
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="ubuntu" scheme="http://23171580.github.io/tags/ubuntu/"/>
@@ -378,14 +378,14 @@ LiveSuit&amp;apos;s &amp;amp; PhoenixSuit&amp;apos;s firmware image unpacker/pac
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="Android" scheme="http://23171580.github.io/tags/Android/"/>
     
-      <category term="全志H3" scheme="http://23171580.github.io/tags/%E5%85%A8%E5%BF%97H3/"/>
+      <category term="全志H3" scheme="http://23171580.github.io/tags/allwinnerh3/"/>
     
-      <category term="DIY固件" scheme="http://23171580.github.io/tags/DIY%E5%9B%BA%E4%BB%B6/"/>
+      <category term="DIY固件" scheme="http://23171580.github.io/tags/DIYfirmware/"/>
     
   </entry>
   
@@ -405,7 +405,7 @@ LiveSuit&amp;apos;s &amp;amp; PhoenixSuit&amp;apos;s firmware image unpacker/pac
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="CJSON" scheme="http://23171580.github.io/tags/CJSON/"/>
@@ -432,7 +432,7 @@ LiveSuit&amp;apos;s &amp;amp; PhoenixSuit&amp;apos;s firmware image unpacker/pac
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="Linux" scheme="http://23171580.github.io/tags/Linux/"/>
@@ -457,7 +457,7 @@ LiveSuit&amp;apos;s &amp;amp; PhoenixSuit&amp;apos;s firmware image unpacker/pac
     
     </summary>
     
-      <category term="日志" scheme="http://23171580.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
       <category term="ubuntu" scheme="http://23171580.github.io/tags/ubuntu/"/>
