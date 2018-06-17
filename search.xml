@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Linux下批量搜索并删除对应文件/文件夹]]></title>
+    <url>%2F2018%2F06%2F17%2FLinux%E4%B8%8B%E6%9F%A5%E6%89%BE%E5%B9%B6%E5%88%A0%E9%99%A4%E7%89%B9%E5%AE%9A%E6%96%87%E4%BB%B6%E6%88%96%E6%96%87%E4%BB%B6%E5%A4%B9%2F</url>
+    <content type="text"><![CDATA[Linux下批量搜索并删除对应文件/文件夹 批量搜索并删除对应文件/文件夹Linux下查找并删除特定文件或文件夹 Windows系统上远程登录到工作站上在Cadence环境下做仿真，画版图的时候，肯定会经常碰到图形界面突然崩溃的情况。这种情况下Cadence会产生一些lck文件来保护当时打开的文件。但是，之后再打开该相关设计文件是就会提示只能以只读文件打开。这个时候就需要手动删除崩溃过程中产生的lck文件。下面的方法可以快速删除这些文件。 find -name ‘lck‘ -exec rm {} \; 查找当前文件夹及其子文件夹下所有文件名中带有『lck』字符的文件并删除之。需要注意的是 find -name lck 也就是没有加单引号，则只搜寻当前目录下的文件而不会搜索子文件夹内的文件。 顺便列一下find的相关使用 find / -name test | xargs rm -rf find -name ‘.git*’ | xargs rm -rf (这个命令可以查找test文件或者目录，并删除！) 用下面的命令可以查找 /home下最近两天修改过的文件： find /home -type f -mtime -2 如果要把这些文件也删掉，那么可以： find /home -type f -mtime -2 -exec rm {} \; -type f 查找文件 -type d 查找目录 -mtime -2 修改时间在2天内 -mtime +3 修改时间在3天前 -exec rm {} \; 将找到的文件 （假定找到文件的名字为 a.txt)， 执行 rm a.txt 命令 find有很多参数，有很强大的搜索功能，具体可以 man find 查看。]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Bash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Anaconda安装使用笔记]]></title>
+    <url>%2F2018%2F06%2F12%2FAnaconda%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[Anaconda 是一个可用于科学计算的 Python 发行版，支持 Linux、Mac、Windows系统，内置了常用的科学计算包。它解决了官方 Python 的两大痛点。 Anaconda 是什么？Anaconda 是一个可用于科学计算的 Python 发行版，支持 Linux、Mac、Windows系统，内置了常用的科学计算包。它解决了官方 Python 的两大痛点。 第一：提供了包管理功能，Windows 平台安装第三方包经常失败的场景得以解决，第二：提供环境管理的功能，功能类似 Virtualenv，解决了多版本Python并存、切换的问题。conda 工具介绍conda 是 Anaconda 下用于包管理和环境管理的工具，功能上类似 pip 和 vitualenv 的组合。 安装成功后 conda 会默认加入到环境变量中，因此可直接在命令行窗口运行命令 conda conda 的环境管理与 virtualenv 是基本上是类似的操作。 1.下载anaconda的安装包从清华的源，下载 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/ 最新的安装版本 2.安装打开安装文件，安装到文件夹位置， （如果之前有安装别的python版本，先去卸载掉， 并确认下环境变量没有残余： D:\Program Files\python2.7； D:\Program Files\python2.7\Scripts） 安装完成之后，设置下环境变量： D:\Anaconda3; D:\Anaconda3\Scripts; D:\Anaconda3\Library\bin 3.查看anaconda安装的python版本信息conda info -e conda info --envs 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）conda create --name python34 python=3.4 安装好后，使用activate激活某个环境activate python34 # for Windows source activate python34 # for Linux &amp; Mac 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH显示所有的环境:conda env list 此时，再次输入python --version 可以得到Python 3.4.5 :: Anaconda 4.1.1 (64-bit)，即系统已经切换到了3.4的环境如果想返回默认的python 2.7环境，运行deactivate python34 # for Windows source deactivate python34 # for Linux &amp; Mac 删除一个已有的环境conda remove --name python34 --all 添加清华的anaconda源conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ conda config --set show_channel_urls yes 移除命令是:conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 查看当前的设置软件源信息conda config --show-sources 更新conda，保持conda最新conda update conda 更新anacondaconda update anaconda 更新pythonconda update python 假设当前环境是python 3.4, conda会将python升级为3.4.x系列的当前最新版本查看帮助conda -h 基于python3.6版本创建一个名字为python36的环境conda create --name python36 python=3.6 激活此环境activate python36 source activate python36 # linux/mac 再来检查python版本，显示是 3.6python -V 退出当前环境deactivate python36 删除该环境conda remove -n python36 --all 或者conda env remove -n python36 查看所以安装的环境conda info -e python36 * D:\Programs\Anaconda3\envs\python36 root D:\Programs\Anaconda3 conda 的包管理功能可 pip 是一样的，当然你选择 pip 来安装包也是没问题的。 安装 matplotlibconda install matplotlib 查看已安装的包conda list 包更新conda update matplotlib 删除包conda remove matplotlib 在 conda 中 anything is a package。conda 本身可以看作是一个包，python 环境可以看作是一个包，anaconda 也可以看作是一个包，因此除了普通的第三方包支持更新之外，这3个包也支持。比如： 更新conda本身conda update conda 更新anaconda 应用conda update anaconda 更新python，假设当前python环境是3.6.1，而最新版本是3.6.2，那么就会升级到3.6.2conda update python 修改镜像地址Anaconda 的镜像地址默认在国外，用 conda 安装包的时候会很慢，目前可用的国内镜像源地址有清华大学的。修改 ~/.condarc (Linux/Mac) 或 C:\Users\当前用户名.condarc (Windows) 配置： channels: - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ - defaults show_channel_urls: true 如果使用conda安装包的时候还是很慢，那么可以考虑使用pip来安装，同样把 pip 的镜像源地址也改成国内的，豆瓣源速度比较快。修改 ~/.pip/pip.conf (Linux/Mac) 或 C:\Users\当前用户名\pip\pip.ini (Windows) 配置： [global] trusted-host = pypi.douban.com index-url = http://pypi.douban.com/simple]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>Anaconda</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[BeyondCompare-install-Ubuntu-16.04]]></title>
+    <url>%2F2018%2F06%2F12%2FBeyondCompare-install-Ubuntu-16.04%2F</url>
+    <content type="text"><![CDATA[解决Ubuntu16.04环境下安装Bcompare时遇到的问题。 解决Ubuntu16.04环境下安装Bcompare时遇到的问题。 首先是遇到从Ubuntu14.04升级到16.04后无法打开继续使用的问题。 由于无法找到安装运行出错原因，就使用install.sh/与uninstall.sh两个脚本，分别进行了root安装和普通用户安装。彻底请理了之前使用的配置出错问题。 之后按照安装install.sh步骤，安装到了/usr/lib/beyondcompare目录下面，使用keygen破解文件，在/usr/lib/beyondcompare目录下生成破解秘钥。 打开Bcompare时，没有反应，于是查找问题解决方法。 需要安装以下依赖程序sudo apt-get install libsm-dev:i386 libice-dev:i386 libxrandr-dev:i386 libxrender-dev:i386 libxcursor-dev:i386 libxinerama-dev:i386 libxft-dev:i386 libfreetype6-dev:i386 安装成功后，打开Bcompare一切正常，将生成的破解秘钥粘贴激活软件。]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>bcompare</tag>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[UC浏览器书签导出方法]]></title>
+    <url>%2F2016%2F10%2F25%2FUC%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B9%A6%E7%AD%BE%E5%AF%BC%E5%87%BA%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[UC浏览器最新版本的导入导出好像越来越垃圾了。就连国际版UC浏览器的同步功能导出HTML书签都做不到。这可不是好现象。抓紧导出书签，转战chrome。。。 首先，我在用的浏览器版本是（国际版11.0.5.850） 为了放置数据丢失，我把书签先备份一下。（.db格式） 然后，从网上下载国际版9.8.9UC浏览器，直接覆盖安装（data/app/com.UCMobile.intl.apk） 接下来，重启手机，待重启完毕后，打开旧版9.8.9浏览器的书签，备份（这里会得到.aucf格式的备份文件） 然后使用旧版本（9.9.8）中国版本，导入书签，找到刚才备份的aucf格式书签备份文件，导入。然后使用UC账号，同步书签到http://bookmark.yun.uc.cn 打开http://bookmark.yun.uc.cn 全选书签，导出HTML文件，即可将书签任意导入firefox或者chrome浏览器。]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>书签导出HTML</tag>
+        <tag>UC浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ubuntu_jdk_install_config]]></title>
+    <url>%2F2016%2F10%2F07%2Fubuntu_jdk_install_config%2F</url>
+    <content type="text"><![CDATA[ubuntu_jdk_install_config ubuntu 14.04 下通过apt-get 安装jdk Installing default JRE/JDK sudo apt-get update sudo apt-get install default-jre sudo apt-get install default-jdk Installing Oracle JDK sudo apt-get install python-software-properties sudo add-apt-repository ppa:webupd8team/java sudo apt-get update Oracle JDK 6(旧版本) sudo apt-get install oracle-java6-installer Oracle JDK 7(较新的稳定版本) sudo apt-get install oracle-java7-installer Oracle JDK 8(最新预览版本) sudo apt-get install oracle-java8-installer Managing Java sudo update-alternatives --config java 有 2 个候选项可用于替换 java (提供 /usr/bin/java)。 选择 路径 优先级 状态 0 /usr/lib/jvm/java-7-oracle/jre/bin/java 1072 自动模式 1 /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java 1071 手动模式 2 /usr/lib/jvm/java-7-oracle/jre/bin/java 1072 手动模式 要维持当前值[*]请按回车键，或者键入选择的编号： （我是按了回车，没改） sudo update-alternatives --config javac （同上） Setting the “JAVA_HOME” environment variable 通过这个命令可以看到java安装路径： sudo update-alternatives --config java 根据设置时所选项来确定path，我是用默认的第一个，所以path为： &quot;/usr/lib/jvm/java-7-oracle&quot; sudo vim /etc/environment 在文件最后添加上： JAVA_HOME=&quot;/usr/lib/jvm/java-7-oracle&quot; 保存退出(:wq)，在终端输入： source /etc/environment 然后输入： echo $JAVA_HOME 如果输出和我们设置是一样的，说明我们安装成功了，这时你还可以看下java的版本： java -version]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[uefi-windows-修复]]></title>
+    <url>%2F2016%2F10%2F07%2Fuefi-windows-%E4%BF%AE%E5%A4%8D%2F</url>
+    <content type="text"><![CDATA[UEFI引导修复教程 UEFI引导修复教程 当uefi引导文件损坏，或ghost还原64位系统到C盘，因无uefi引导还是不能启动系统。 怎么修复UEFI引导呢？ ○、UEFI引导基本原理 1.esp引导分区 esp磁盘分区是gpt格式硬盘放efi引导文件的磁盘，在mbr格式硬盘中也可以由任一fat格式磁盘分区代替 2.efi文件结构 efi\boot\bootx64.efi efi\microsoft\boot\bcd 3.efi启动过程 uefi bios启动时，自动查找硬盘下esp分区的bootx64.efi，然后由bootx64.efi引导 efi下的bcd文件，由bcd引导指定系统文件（一般为c:\windows\system32\winload.efi） 一、用bcbboot自动修复 我们建议大家启动64位8PE，用它带的bcdboot来修复。 （一）指定esp分区修复 环境为64位8PE，bios/uefi启动进入下都可以 1.启动64位8PE，并用esp分区挂载器或diskgenuis挂载esp分区 2.打开cmd命令行，输入以下命令并运行 bcdboot c:\windows /s o: /f uefi /l zh-cn 其中：c:\windows 硬盘系统目录，根据实际情况修改 /s o: 指定esp分区所在磁盘，根据实际情况修改 /f uefi 指定启动方式为uefi /l zh-cn 指定uefi启动界面语言为简体中文 注：64位7PE不带/s参数，故7PE不支持bios启动下修复 （二）不指定esp分区修复 环境为64位7或8PE，只有uefi启动进入PE才可以 不用挂载esp分区，直接在cmd命令行下执行： bcdboot c:\windows /l zh-cn 其中 c:\windows 硬盘系统目录，根据实际情况修改 /l zh-cn 指定uefi启动界面语言为简体中文 注：在8PE中，我们也可以在uefi启动进入pe后，挂载esp分区用方法（一）修复 （三）用“UEFI引导自动修复”脚本修复 这个脚本，其实就是用了8PE的bcdboot，来修复uefi引导。测试可以在2003 7 8 PE中自动修复uefi引导。 这里提供两套，第一套是程序版,为离弃制作；第二套是pecmd脚本版，由caocaofff制作，都相当完美。 二、用bootice手动修复 从efi引导启动过程来看，虽然它的文件很多，但主要用到的就是两文件，我们完全可以在各pe下挂载esp分区，从硬盘系统中复制bootx64.efi文件，然后用用bootice制作好bcd，就完成efi引导修复。 1.启动任一pe,用esp分区挂载器或diskgenuis挂载esp分区 2.查看esp分区是否可正常读写，如不正常可重新格式化为fat16分区格式。 3.在esp分区中建立如下空文件夹结构 \efi\boot\ （bootx64.efi等复制） \efi\microsoft\boot\ （bcd等建立） 4.复制硬盘系统中的bootmgfw.efi（一般在c:\windows\boot\efi下）到esp分区的\efi\boot\下，并重命名为bootx64.efi 5.打开bootice软件，有esp分区的\efi\microsoft\boot\下新建立一bcd文件，打开并编辑bcd文件，添加“windows vista\7\8启动项，指定磁盘为硬盘系统盘在的盘，指定启动分区为硬盘系统分区（一般为c:）指定启动文件为：\Windows\system32\winload.efi， 是.efi，不是.exe，要手工改过来最后保存当前系统设置并退出。 这样子,精简的UEFI引导就手工修复了，实机和虚拟机测试通过。 注：xpPE不能识别gpt格式的硬盘分区，用2003PE中的disk.sys替换xpPE内核中的相应文件，就可以让xpPE也能识别gpt磁盘格式分区指定启动分区不是esp分区所在分区，就是硬盘64位7 8 系统所在分区指定启动文件为：\Windows\system32\winload.efi， 是.efi，不是.exe，要手工改过来]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>uefi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ESP8266-NonOS_SDK&IOT_RTOS_SDK]]></title>
+    <url>%2F2016%2F10%2F02%2FESP8266-NonOS_SDK%26IOT_RTOS_SDK%2F</url>
+    <content type="text"><![CDATA[ESP8266官方两种代码的学习 ESP8266官方提供的两种NonOS_SDK和IOT_RTOS_SDK的编译和简单使用方法。 官方的NonOS_SDK其中的编译环境不需要作任何修改 但是官方为了使RTOS_SDK和NonOS_SDK区别开来， 在RTOS_SDK中做了部分修改加入了SDK_PATH和BIN_PATH两个环境变量， 因此需要做些修改直接使RTOS_SDK的环境变量做些修改； 以下是修改的具体代码： （1）examples示例代码编译时需要使用gen_misc.sh，该文件的修改具体情况： diff -r orign_gen_misc.sh new_gen_misc.sh 3,14c3 &lt; :&lt;&lt;! &lt; ******NOTICE****** &lt; MUST set SDK_PATH &amp; BIN_PATH firstly!!! &lt; example: &lt; export SDK_PATH=~/esp_iot_sdk_freertos &lt; export BIN_PATH=~/esp8266_bin &lt; ! &lt; &lt; export SDK_PATH= &lt; export BIN_PATH= &lt; &lt; echo &quot;gen_misc.sh version 20150911&quot; --- &gt; echo &quot;gen_misc.sh version 20150911&quot; 17,29c6,16 &lt; if [ $SDK_PATH ]; then &lt; echo &quot;SDK_PATH:&quot; &lt; echo &quot;$SDK_PATH&quot; &lt; echo &quot;&quot; &lt; else &lt; echo &quot;ERROR: Please export SDK_PATH in gen_misc.sh firstly, exit!!!&quot; &lt; exit &lt; fi &lt; &lt; if [ $BIN_PATH ]; then &lt; echo &quot;BIN_PATH:&quot; &lt; echo &quot;$BIN_PATH&quot; &lt; echo &quot;&quot; --- &gt; echo &quot;Please follow below steps(1-5) to generate specific bin(s):&quot; &gt; echo &quot;STEP 1: choose boot version(0=boot_v1.1, 1=boot_v1.2+, 2=none)&quot; &gt; echo &quot;enter(0/1/2, default 2):&quot; &gt; read input &gt; &gt; if [ -z &quot;$input&quot; ]; then &gt; boot=none &gt; elif [ $input == 0 ]; then &gt; boot=old &gt; elif [ $input == 1 ]; then &gt; boot=new 31,32c18 &lt; echo &quot;ERROR: Please export BIN_PATH in gen_misc.sh firstly, exit!!!&quot; &lt; exit --- &gt; boot=none 34,46d19 &lt; &lt; echo &quot;Please check SDK_PATH &amp; BIN_PATH, enter (Y/y) to continue:&quot; &lt; read input &lt; &lt; if [[ $input != Y ]] &amp;&amp; [[ $input != y ]]; then &lt; exit &lt; fi &lt; &lt; echo &quot;&quot; &lt; &lt; echo &quot;Please follow below steps(1-5) to generate specific bin(s):&quot; &lt; echo &quot;STEP 1: use boot_v1.2+ by default&quot; &lt; boot=new 170a144,146 &gt; touch user/user_main.c &gt; &gt; echo &quot;&quot; 176c152 &lt; make BOOT=$boot APP=$app SPI_SPEED=$spi_speed SPI_MODE=$spi_mode SPI_SIZE_MAP=$spi_size_map --- &gt; make COMPILE=gcc BOOT=$boot APP=$app SPI_SPEED=$spi_speed SPI_MODE=$spi_mode SPI_SIZE_MAP=$spi_size_map &gt; (2)examples示例代码下的Makefile(这里修改的为websocket示例代码下的Makefile)： diff -r orign_Makefile new_Makefile 30c30 &lt; LDDIR = $(SDK_PATH)/ld --- &gt; LDDIR = ../ld 53c53 &lt; -L$(SDK_PATH)/lib \ --- &gt; -L../lib \ 120c120,121 &lt; sinclude $(SDK_PATH)/Makefile --- &gt; PDIR := ../$(PDIR) &gt; sinclude $(PDIR)Makefile (3)源码根目录的Makefile文件修改： diff -r orig_Makefile new_Makefile 7,14c7 &lt; ifeq ($(COMPILE), xcc) &lt; AR = xt-ar &lt; CC = xt-xcc &lt; NM = xt-nm &lt; CPP = xt-xt++ &lt; OBJCOPY = xt-objcopy &lt; OBJDUMP = xt-objdump &lt; else --- &gt; ifeq ($(COMPILE), gcc) 18c11 &lt; CPP = xtensa-lx106-elf-g++ --- &gt; CPP = xtensa-lx106-elf-cpp 20a14,20 &gt; else &gt; AR = xt-ar &gt; CC = xt-xcc &gt; NM = xt-nm &gt; CPP = xt-cpp &gt; OBJCOPY = xt-objcopy &gt; OBJDUMP = xt-objdump 238d237 &lt; @mkdir -p $(BIN_PATH) 242,244c241,243 &lt; @$(RM) -r $(BIN_PATH)/eagle.S $(BIN_PATH)/eagle.dump &lt; @$(OBJDUMP) -x -s $&lt; &gt; $(BIN_PATH)/eagle.dump &lt; @$(OBJDUMP) -S $&lt; &gt; $(BIN_PATH)/eagle.S --- &gt; @$(RM) -r ../bin/eagle.S ../bin/eagle.dump &gt; @$(OBJDUMP) -x -s $&lt; &gt; ../bin/eagle.dump &gt; @$(OBJDUMP) -S $&lt; &gt; ../bin/eagle.S 246,249c245,248 &lt; @mkdir -p $(BIN_PATH)/upgrade &lt; @$(RM) -r $(BIN_PATH)/upgrade/$(BIN_NAME).S $(BIN_PATH)/upgrade/$(BIN_NAME).dump &lt; @$(OBJDUMP) -x -s $&lt; &gt; $(BIN_PATH)/upgrade/$(BIN_NAME).dump &lt; @$(OBJDUMP) -S $&lt; &gt; $(BIN_PATH)/upgrade/$(BIN_NAME).S --- &gt; mkdir -p ../bin/upgrade &gt; @$(RM) -r ../bin/upgrade/$(BIN_NAME).S ../bin/upgrade/$(BIN_NAME).dump &gt; @$(OBJDUMP) -x -s $&lt; &gt; ../bin/upgrade/$(BIN_NAME).dump &gt; @$(OBJDUMP) -S $&lt; &gt; ../bin/upgrade/$(BIN_NAME).S 259d257 &lt; @echo &quot;SDK_PATH: $(SDK_PATH)&quot; 262,264c260,262 &lt; @python $(SDK_PATH)/tools/gen_appbin.py $&lt; 0 $(mode) $(freqdiv) $(size_map) &lt; @mv eagle.app.flash.bin $(BIN_PATH)/eagle.flash.bin &lt; @mv eagle.app.v6.irom0text.bin $(BIN_PATH)/eagle.irom0text.bin --- &gt; @python ../tools/gen_appbin.py $&lt; 0 $(mode) $(freqdiv) $(size_map) &gt; @mv eagle.app.flash.bin ../bin/eagle.flash.bin &gt; @mv eagle.app.v6.irom0text.bin ../bin/eagle.irom0text.bin 266,267d263 &lt; @echo &quot;BIN_PATH: $(BIN_PATH)&quot; &lt; @echo &quot;&quot; 269c265 &lt; @echo &quot;Generate eagle.flash.bin and eagle.irom0text.bin successully in BIN_PATH&quot; --- &gt; @echo &quot;Generate eagle.flash.bin and eagle.irom0text.bin successully in folder bin.&quot; 277c273 &lt; @python $(SDK_PATH)/tools/gen_appbin.py $&lt; 1 $(mode) $(freqdiv) $(size_map) --- &gt; @python ../tools/gen_appbin.py $&lt; 1 $(mode) $(freqdiv) $(size_map) 280c276 &lt; @python $(SDK_PATH)/tools/gen_appbin.py $&lt; 2 $(mode) $(freqdiv) $(size_map) --- &gt; @python ../tools/gen_appbin.py $&lt; 2 $(mode) $(freqdiv) $(size_map) 293c289 &lt; @mv eagle.app.flash.bin $(BIN_PATH)/upgrade/$(BIN_NAME).bin --- &gt; @mv eagle.app.flash.bin ../bin/upgrade/$(BIN_NAME).bin 295c291 &lt; @echo &quot;Generate $(BIN_NAME).bin successully in BIN_PATH&quot; --- &gt; @echo &quot;Generate $(BIN_NAME).bin successully in folder bin/upgrade.&quot; 399,407c395,403 &lt; INCLUDES := $(INCLUDES) -I $(SDK_PATH)/include -I $(SDK_PATH)/extra_include &lt; INCLUDES += -I $(SDK_PATH)/include/espressif &lt; INCLUDES += -I $(SDK_PATH)/include/lwip &lt; INCLUDES += -I $(SDK_PATH)/include/lwip/ipv4 &lt; INCLUDES += -I $(SDK_PATH)/include/lwip/ipv6 &lt; INCLUDES += -I $(SDK_PATH)/include/nopoll &lt; INCLUDES += -I $(SDK_PATH)/include/spiffs &lt; INCLUDES += -I $(SDK_PATH)/include/ssl &lt; INCLUDES += -I $(SDK_PATH)/include/json --- &gt; INCLUDES := $(INCLUDES) -I $(PDIR)include -I $(PDIR)extra_include &gt; INCLUDES += -I $(PDIR)include/espressif &gt; INCLUDES += -I $(PDIR)include/lwip &gt; INCLUDES += -I $(PDIR)include/lwip/ipv4 &gt; INCLUDES += -I $(PDIR)include/lwip/ipv6 &gt; INCLUDES += -I $(PDIR)include/nopoll &gt; INCLUDES += -I $(PDIR)include/spiffs &gt; INCLUDES += -I $(PDIR)include/ssl &gt; INCLUDES += -I $(PDIR)include/json]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>ESP8266</tag>
+        <tag>NonOS_SDK</tag>
+        <tag>IOT_RTOS_SDK</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ESP8266开发板相关开源项目使用介绍]]></title>
+    <url>%2F2016%2F10%2F01%2FESP8266%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9B%B8%E5%85%B3%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[ESP8266开发板相关开源项目使用介绍 这里介绍的esp8266是使用了ESP-12E型号的NodeMCU开发板； 该模组采用的是容量为4MB, 封装为 SOP-210 mil 的 SPI Flash。 ESP8266EX 内置 Tensilica L106 超低功耗 32 位微型 MCU,带有 16 位精简模式,主频支持 80MHz 和 160 MHz,支持RTOS。目前 WiFi 协议栈只用了 20%的 MIPS,其他的都可以用来做应用开发。 NodeMCU开发板自带了两个LED，分别是ESP-12E自带的LED，以及在开发板上的LED，分别对应GPIO为2/16. 这里针对ESP8266的相关开源第三方源码编译和烧录使用固件做相关的介绍和说明。 特别的需要注意一点：NodeMCU-firmware源码编译固件，在烧录时需要在esptool.py的参数中加入: “-fm dio -fs 32m -ff 40m” 否则会出现无法启动的情况，这里详细请看Makefile部分修改。 对源码编译烧录使用过程中发现烧录了noduino-sdk和AT固件后，没有添加使用特定参数烧录NodeMCU固件后出现了开发板GPIO2的LED一直处于快速闪烁状态，使用参数后正常启动，且从串口调试反馈参数看到： Formatting file module or continue… NodeMCU 1.5.4.1 build unspecified powered by Lua 5.1.4 on SDK 1.5.4.1(39cb9a32) lua: cannot open init.lua 本文中介绍的相关内容实际操作环境为Ubuntu-16.04 （一）NodeMCU首先是开发板自带的NodeMCU固件，其源码的下载地址为： https://github.com/nodemcu/nodemcu-firmware 当前的版本为1.5.4.1 在放置编译项目的文件下创建NodeMCU文件夹： mkdir NodeMCU 之后使用git工具从源码地址下载源码： git clone https://github.com/nodemcu/nodemcu-firmware.git 由于NodeMCU在编译时app/user下需要使用到ESP8266_RTOS_SDK中的xtensa 头文件， fatal error: xtensa/corebits.h: No such file or directory xtensa-toolchain/xtensa-lx106-elf/bin/../lib/gcc/xtensa-lx106-elf/4.8.2/../../../../xtensa-lx106-elf/bin/ld: cannot find -lhal collect2: error: ld returned 1 exit status 因此需要同步该代码： git clone https://github.com/espressif/ESP8266_RTOS_SDK.git 同时，NodeMCU编译中会出现报错提示缺少文件libhal.a，这里通过以下命令： wget -c https://github.com/esp8266/esp8266-wiki/raw/master/libs/libhal.a mv libhal.a nodemcu-firmware/libhal.a 将该文件放置到NodeMCU的源码目录下面，接下来通过修改使用它。 修改Makefile文件（添加：cp libhal.a $(SDK_DIR)/lib/libhal.a）到下面的位置 $(TOP_DIR)/sdk/.extracted-$(SDK_BASE_VER): $(TOP_DIR)/cache/esp_iot_sdk_v$(SDK_FILE_VER).zip mkdir -p &quot;$(dir $@)&quot; (cd &quot;$(dir $@)&quot; &amp;&amp; rm -fr esp_iot_sdk_v$(SDK_VER) ESP8266_NONOS_SDK &amp;&amp; unzip $(TOP_DIR)/cache/esp_iot_sdk_v$(SDK_FILE_VER).zip ESP8266_NONOS_SDK/lib/* ESP8266_NONOS_SDK/ld/eagle.rom.addr.v6.ld ESP8266_NONOS_SDK/include/* ) mv $(dir $@)/ESP8266_NONOS_SDK $(dir $@)/esp_iot_sdk_v$(SDK_VER) rm -f $(SDK_DIR)/lib/liblwip.a cp libhal.a $(SDK_DIR)/lib/libhal.a touch $@ 注意：在官方的编译环境下生成的两个固件文件大小是通过ld/nodemcu.ld该文件下的参数自动生成的； 做个对比： 未修改的文件部分： /* This linker script generated from xt-genldscripts.tpp for LSP . */ /* Linker Script for ld -N */ MEMORY { dport0_0_seg : org = 0x3FF00000, len = 0x10 dram0_0_seg : org = 0x3FFE8000, len = 0x14000 iram1_0_seg : org = 0x40100000, len = 0x8000 irom0_0_seg : org = 0x40210000, len = 0x80000 } 修改的部分 /* This linker script generated from xt-genldscripts.tpp for LSP . */ /* Linker Script for ld -N */ MEMORY { dport0_0_seg : org = 0x3FF00000, len = 0x10 dram0_0_seg : org = 0x3FFE8000, len = 0x14000 iram1_0_seg : org = 0x40100000, len = 0x8000 irom0_0_seg : org = 0x40240000, len = 0xC0000 } 这里的修改会导致最后的生成第二个文件产生差异，如果做了修改我们同时需要相应的修改.travis.yml - srec_cat -output ${file_name_float} -binary 0x00000.bin -binary -fill 0xff 0x00000 0x40000 0x40000.bin -binary -offset 0x40000 - cd ../ - make clean - make EXTRA_CCFLAGS=&quot;-DLUA_NUMBER_INTEGRAL -DBUILD_DATE=&apos;\&quot;&apos;$BUILD_DATE&apos;\&quot;&apos;&quot; - cd bin/ - file_name_integer=&quot;nodemcu_integer_${TRAVIS_TAG}.bin&quot; - srec_cat -output ${file_name_integer} -binary 0x00000.bin -binary -fill 0xff 0x00000 0x40000 0x40000.bin -binary -offset 0x40000 Makefile文件修改： spiffs-image: bin/0x40000.bin $(MAKE) -C tools ----------------------- flash: ifndef PDIR $(MAKE) -C ./app flash else $(ESPTOOL) --port $(ESPPORT) write_flash -fm dio -fs 32m -ff 40m 0x00000 $(FIRMWAREDIR)0x00000.bin 0x40000 $(FIRMWAREDIR)0x40000.bin endif 修改完成后，到源码目录下执行 make &amp;&amp; make flash 注意： 这里如果没有对当前用户进行串口的用户组设置，会出现权限不足的提示；处理方法： 关于在Ubuntu下使用串口的root权限 执行命令 dmesg | tail 可以看到带有：“ to ttyUSB0”的字样 ls-l /dev/ttyUSB0 //这个0就是上面检测到的 看到如下 crw-rw----1 root dialout 188, 0 5 AUG ttyUSB0 这里的dialout用户组 可以使用以下命令将用户加入root用户组 sudo usermod -aG dialout username 再键入： ls-ld /run/lock 或 ls-ld /var/lock 然后出现以下字样: drwxrwxrwt5 root root 4096 9 dic 21.39 /var/lock 运行root下的 chmodo+rwx /run/lock 或 chmodo+rwx /var/lock 系统登出然后再登入, 运行与系统串口相关的应用即可正常使用了。 （二）noduino-sdk源码地址: https://github.com/icamgo/noduino-sdk 官方的简单操作方法： clone the whole sdk$ git clone --recursive git://github.com/icamgo/noduino-sdk.git noduino-sdk generate the toolchain (you need Python 2.7)$ cd noduino-sdk/toolchain $ ./gen.py try the first example$ cd ../example/noduino/blink upload the example to dev board through serial$ make flash （三）Arduino-ESP8266关于在arduino上加入esp8266支持的方法， 官方社区提供的方法： https://github.com/esp8266/Arduino http://arduino.esp8266.com/stable/package_esp8266com_index.json 从Arduino官网下载ArduinoIDE，解压压缩包到用户目录，然后进入目录下 cd hardware mkdir esp8266com cd esp8266com git clone git://github.com/icamgo/Noduino.git esp8266 cd esp8266 git submodule init git submodule update cd tools/xtensa-toolchain ./gen.py 之后使用install.sh安装arduino到dash栏或者桌面， 打开Arduino进入后在tool中找到esp项目， 使用对应的example测试代码编译工程烧录到开发板即可。 （四）espwebframework这个开源第三方项目地址： https://github.com/fdivitto/ESPWebFramework 本人对其做了一些修改，附带地址： https://github.com/23171580/espwebframework 编译烧录方法： Ubuntu-16.04 Build espwebframework git clone https://github.com/23171580/espwebframework.git cd espwebframework ./make.sh set up esp8266 board into flash mode then, sudo make flash finally,reset esp8266 board.]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>ESP8266</tag>
+        <tag>NodeMCU</tag>
+        <tag>espwebframework</tag>
+        <tag>noduino-sdk</tag>
+        <tag>arduino-esp8266</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Padavan自定义功能编译日志]]></title>
+    <url>%2F2016%2F09%2F22%2FPadavan%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%9F%E8%83%BD%E7%BC%96%E8%AF%91%E6%97%A5%E5%BF%97%2F</url>
+    <content type="text"><![CDATA[Padavan自定义功能编译日志 中文SSID支持的修改：proprietary/rt_wifi/rtpci/3.0.X.X/mt76x2/common/cmm_info.c proprietary/rt_wifi/rtpci/3.0.X.X/mt76x2/include/rtmp_def.h proprietary/rt_wifi/rtsoc/2.7.X.X/rt2860v2/common/cmm_info.c proprietary/rt_wifi/rtsoc/2.7.X.X/rt2860v2/include/rtmp_def.h linux-3.4.x/drivers/net/wireless/ralink/mt76x2/common/cmm_info.c linux-3.4.x/drivers/net/wireless/ralink/mt76x2/include/rtmp_def.h linux-3.4.x/drivers/net/wireless/ralink/rt2860v2/common/cmm_info.c linux-3.4.x/drivers/net/wireless/ralink/rt2860v2/include/rtmp_def.h user/httpd/aspbw.c user/httpd/httpd.h user/rc/common_ex.c user/rc/rc.h user/www/n56u_ribbon_fixed/general.js 修改编译用户及主机信息linux-3.4.x/scripts/mkcompile_h 关闭悬浮日志user/shared/defaults.c { &quot;log_float_ui&quot;, &quot;0&quot; }, /* WebUI syslog float panel mode */ 开启默认中文界面{ &quot;preferred_lang&quot;, &quot;CN&quot; }, 5G使用美国地区user/shared/defaults.h #define DEF_WLAN_5G_CC &quot;US&quot; 添加花生壳动态DNS服务user/www/n56u_ribbon_fixed/Advanced_DDNS_Content.asp web界面添加手势图标user/www/n56u_ribbon_fixed/Advanced_DHCP_Content.asp &lt;span class=&quot;icon-hand-right&quot;&gt;&lt;/span&gt;]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Padavan</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo-博客搭建记录]]></title>
+    <url>%2F2016%2F08%2F29%2FHexo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[在Ubuntu16.04和Windows10下搭建Hexo写博客的过程 在Ubuntu16.04和Windows10下搭建Hexo写博客的过程 更新了Ubuntu16.04之后，便想将windows10下面用Hexo搭建的github博客在Ubuntu下面生成更新下。 安装nodejs过程试了直接下载官方的编译安装包，使用后发现不能正常使用，于是转而使用源码编译然后再自行安装。 下载源码地址：http://nodejs.cn/download 使用命令： ./configure make sudo make install 安装nodejs成功。 配置预环境到.bashrc(使用淘宝的nodejs镜像源环境)，执行 source ~.bashrc alias cnpm=&quot;npm --registry=https://registry.npm.taobao.org /--cache=$HOME/.npm/.cache/cnpm /--disturl=https://npm.taobao.org/dist /--userconfig=$HOME/.cnpmrc&quot; 接下来在终端内运行: sudo npm install hexo-cli -g sudo npm update hexo-cli -g mkdir {目录路径/文件夹名称} hexo init {目录路径/文件夹名称} cd {目录路径/文件夹名称} hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章 hexo p == hexo publish hexo g == hexo generate#生成 hexo s == hexo server #启动服务预览 hexo d == hexo deploy#部署 hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。 hexo server -s #静态模式 hexo server -p 5000 #更改端口 hexo server -i 192.168.1.1 #自定义 IP hexo clean #清除缓存 网页正常情况下可以忽略此条命令 hexo g #生成静态网页 hexo d #开始部署 hexo d #部署 #可与hexo g合并为 hexo d -g （如果执行后出现拨错：ERROR Deployer not found: git 需要执行 sudo npm install hexo-deployer-git --save） 部署类型设置git hexo 3.0 部署类型不再是github，_config.yml 中修改 详细配置参考： https://hexo.io/zh-cn/docs/configuration.html # # Deployment ## Docs: http://hexo.io/docs/deployment.html deploy: type: git repository: git@***.github.com:***/***.github.io.git branch: master # hexo generate –watch #监视文件变动 在终端中可以使用： git config -l #查看当前的git用户信息。 这里注意SSH-KEY的相关配置 在Ubuntu系统中，终端中执行： ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; （这里的YOUR_EMAIL@YOUREMAIL.COM改成自己的邮箱） 这样会在当期用户的目录下.ssh文件夹中生成：生成密钥文件,这样就会生成默认名字为id_rsa和id_rsa.pub 打开公钥文件（id_rsa.pub），并把内容复制至代码托管平台上。 多账号ssh配置： 当你在Github或Coding都有账号时， 1.生成指定名字的密钥 ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; -f ~/.ssh/github 命名为github（这里叫什么随意，不要重名即可），然后会生成github和github.pub这两个文件， 打开公钥文件（id_rsa.pub），并把内容复制至代码托管平台上， 修改config文件， 添加如下代码： Host github.com www.github.com IdentityFile ~/.ssh/github 测试： ssh -T git@github.com 如果是coding的，则这样填写： Host coding.net www.coding.net IdentityFile ~/.ssh/coding 同一平台下的多账号配置 如果有两个Github账号： 也是按照 多账号设置 的方法进行第一第二步 这样你就已经正确的生成好了两个密钥，假设是：github_a和github_b分别对应的是你的账户aaaaaa和账户bbbbbb 修改config文件 vim ~/.ssh/config 添加如下代码 Host aaaaaa.github.com HostName github.com User git IdentityFile ~/.ssh/github_a Host bbbbbb.github.com HostName github.com User git IdentityFile ~/.ssh/github_b 修改ssh URL 例如原来的url是：git@github.com:aaaaaa/xxxxxx.git 需要改成：git@aaaaaa.github.com:aaaaaa/xxxxxx.git bbbbbb账号的修改也是如此 最后补充一点（这部分Git熟悉的基本可以略过）：有些童鞋可能在设置这个多账号前已经配置了一个Github的ssh，然后把代码clone下来，配置多账号后，原来的代码就提交不上了。 此时你进入 原来clone的代码文件夹下，执行 git remote -v 即可看到远处资源库路径 如：git@github.com:aaaaaa/xxxxxx.git 执行 git remote remove origin 删除该远程路径 执行 git remote add origin git@aaaaaa.github.com:aaaaaa/xxxxxx.git 加上正确的远程仓库 文章编辑模板： title: 使用Hexo搭建个人博客 layout: post date: 2014-03-03 19:07:43 comments: true categories: Blog tags: [Hexo] keywords: Hexo, Blog description: 简介 变量描述: layout 布局 title 标题 date 文件建立日期 以上是文章摘要 以下是余下全文 写作技巧: hexo new page &lt;title&gt; hexo new post &lt;title&gt; # :title 标题 :year 建立的年份（4 位数） :month 建立的月份（2 位数） :i_month 建立的月份（去掉开头的零） :day 建立的日期（2 位数） :i_day 建立的日期（去掉开头的零） windows10环境下搭建相对简单，下载安装文件： Git和node https://git-scm.com/downloads http://nodejs.cn/download/ 安装之后，在相应的位置创建新的文件夹，进入git终端，按照Ubuntu环境下执行相应命令写文章发文章即可。 hexo d 执行报错 ERROR Deployer not found: git 解决方法 npm install hexo-deployer-git --save]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>hexo</tag>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[OV摄像头整理分类]]></title>
+    <url>%2F2016%2F07%2F29%2FOV%E6%91%84%E5%83%8F%E5%A4%B4%E6%95%B4%E7%90%86%E5%88%86%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[OV摄像头整理分类 OV2740：低功耗PureCel#### OV10640：新旗舰汽车传感器#### OV5670：500万像素PureCel传感器#### OV10823：10.5MP @ 30 fps的#### OV5658：500万像素HDR#### OV6211：3祄OmniPixel3-GS#### OV9762：1.87微米的OmniBSI-2#### OV10626：HDR和高灵敏度#### OV2680/OV2685：高性价比200万像素#### OV8858：高性价比800万像素#### OV13850：低功耗13MP#### OV10822：10.5MP @ 30 fps的#### OV4689：4MP与HDR#### OV10820：10.5MP注册一般建筑承建商#### OV8865：低功耗8MP#### OV9728 - 720p高清的CameraChip#### OV2724 - 前置摄像头解决方案#### OV4688 - 原生16:9#### OV5656 - 1080p/30#### OVM7695 - 超迷你的VGA#### 最佳的类 - 800万像素#### OV5645 - 1080p/30#### OV480同伴处理器的OmniBSI + VGA#### 的OmniBSI + 500万像素AutoVision#### OV12830 - 12.7 MP @ 24#### OVM7675 - VGA @ 30#### OV2722 - 紧凑型FHD#### OV16825 - 1600万像素手机#### OV16820 - 16MP @ 30 fps的#### OV9724 720p高清#### 800万像素的OmniBSI +高清OV9713#### 移动1.75微米的OmniBSI-2#### 笔记本720P的OmniBSI-2#### 移动的OmniBSI-2 8MP#### 平板电脑的OmniBSI-2 5MP#### 手机 - 300万像素BSI#### 800万像素的OmniBSI-2#### DSC / DVC 10万像素16:9高清#### 800万像素的OmniBSI#### 汽车OV10630#### 720p高清OV2659#### 移动OV2643#### 的OmniBSI原生高清 - OV9740#### 的OmniBSI VGA#### VGA @ 60 fps的 - OV7735#### OV5640 - 的5MP SOC凸轮#### OV2720 - 世界上最小的高清传感器#### 移动OV5647#### OV9726 - 高清视频的便携设备#### OV14810 / OV14825 - DSC / DVC和移动#### 安全OV2715#### 真正的高清视频OV2710#### DSC / DV OV9810#### 汽车OV7960#### 安全OV7960的OmniBSI 1.75微米家庭]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>OV摄像头</tag>
+        <tag>分类</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu使用过程日志]]></title>
+    <url>%2F2016%2F07%2F22%2FUbuntu%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E6%97%A5%E5%BF%97%2F</url>
+    <content type="text"><![CDATA[使用Ubuntu时遇到的一些小问题解决方法 彻底卸载预装软件libreoffice命令： sudo apt-get purge libreoffice-core 无法清空回收站时处理方法： 例如：无法删除的用户回收站位置： .local/share/Trash/files 使用命令： sudo rm -rf * Ubuntu和主机共享互传文件： sudo mkdir /mnt/share sudo mount -t vboxsf games /mnt/share 其中”games”是之前创建的共享文件夹的名字。 OK，现在Ubuntu和主机可以互传文件了。 Ubuntu默认的网络连接配置软件包名称 network-manager-gnome Ubuntu日常垃圾文件清理软件： ubuntu-tweak Ubuntu挂载MTP: sudo apt-get install libusb-dev wget http://downloads.sourceforge.net/project/libmtp/libmtp/1.1.1/libmtp-1.1.1.tar.gz tar -xvf libmtp-1.1.1.tar.gz cd libmtp-1.1.1 ./configure --prefix=/usr make sudo make install sudo cp 69-libmtp.rules /etc/udev/rules.d (mayby not needed) sudo service udev restart Android 3.0+开始支持MTP挂载方式，米2也支持， 但是米2的操作说明却好像有些问题。 正确的方法如下： 1.将MTP设备连接至PC机; 2.如果是第一次使用MTP设备需要安装以下软件，否则可以跳过此步骤： sudo apt-get install mtpfs libfuse-dev libmad0-dev 3.建立挂载点 sudo mkdir /media/mtp 4.修改权限（小米的说明中少了这一步，所以打不开） sudo chmod 775 /media/mtp 5.挂载MTP设备 sudo mtpfs -o allow_other /media/mtp 挂载完成后可以用文件浏览器像查看本地的磁盘一样查看文件， 也可以用命令传输文件（和本地的命令一样），如： cp video.mp4 /media/mtp/Movies/ 6.卸载设备 sudo umount /media/mtp]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Ubuntu和Windows环境下配置JAVA环境]]></title>
+    <url>%2F2016%2F07%2F22%2Fenv-jdk-config-win-ubuntu%2F</url>
+    <content type="text"><![CDATA[JAVA_HOME C:\Program Files\Java\jdk1.7.0_51 JRE_HOME C:\Program Files\Java\jre7 CLASSPATH .%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar PATH＝&quot;.:/usr/local/jdk1.6.0_38/bin&quot; CLASSPATH=&quot;.:/usr/local/jdk1.6.0_38/lib&quot; update-alternatives --install /usr/bin/java java /usr/local/jdk1.6.0_38/bin/java 300 update-alternatives --install /usr/bin/javac javac /usr/local/jdk1.6.0_38/bin/javac 300 windows环境从官网下载相应的安装包并安装后, 点击系统变量方框下的“新建”，填入以上对应的变量值： JAVA_HOME C:\Program Files\Java\jdk1.7.0_51 JRE_HOME C:\Program Files\Java\jre7 CLASSPATH .%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar 编辑Path变量，不是新建，填入 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin; 注意如果原来的Path前没有;(分号）的话，应加 ;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin; 最后使用cmd,输入命令 java -version javac 查看是否出现相应提示信息。 Ubutnu环境下： 操作文件夹：/usr/local jdk的bin文件放置文件夹下 设置权限： chmod u+x jdk.....bin 执行： ./jdk......bin 环境设置： gedit /etc/environment 在environment中修改，出现如下部分 JAVA_HOME=/usr/local/jdk1.6.0_38 CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib PATH＝$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH 设置系统默认环境的java环境： update-alternatives --install /usr/bin/java java /usr/local/jdk1.6.0_38/bin/java 300 update-alternatives --install /usr/bin/javac javac /usr/local/jdk1.6.0_38/bin/javac 300 通过这一步将我们安装的jdk加入java选单。 update-alternatives --config java 通过这一步选择系统默认的jdk之后，在终端中查看： java -version javac]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>windows</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[全志H3固件解包打包方法]]></title>
+    <url>%2F2016%2F07%2F18%2Fallwinner-tools%2F</url>
+    <content type="text"><![CDATA[imgrepacker (version 2.05 linux) LiveSuit&apos;s &amp; PhoenixSuit&apos;s firmware image unpacker/packer (c) RedScorpio, Moscow, 2012-2014 RedScorpio@land.ru 以下操作均在Ubuntu14.04环境下操作。 tools文件夹下的工具 使用imgrepacker工具对官方固件进行解包操作： imgrepacker (version 2.05 linux) LiveSuit&apos;s &amp; PhoenixSuit&apos;s firmware image unpacker/packer (c) RedScorpio, Moscow, 2012-2014 RedScorpio@land.ru Usage: ./imgrepacker [options] &lt;file_name/path_name&gt; ./imgrepacker [options] &lt;name&gt;.img - for unpacking ./imgrepacker [options] &lt;name&gt;.img.dump - for packing Options: /log - write log /debug - debug mode on (works with /log option) /quiet - don&apos;t output to console /mono - monochrome mode on /noiso - don&apos;t save/load disk image (iso) /8600 - pack fw for old SC8600 /smt - zdisk.img packed by SMT (unpack option) /latin - replace non-latin symbols in path (unpack option) /skip - skip image size check (unpack option) /2nd - unpack/pack 2-nd layer files /ini - rewrite *.ini-file with new parameters Thanks: esxgx for his research losber for testing （例子：./imgrepacker /skip factory.img） 得到的文件夹以.dump结尾， 之后， 进入文件夹内部，得到 system.fex boot.fex recovery.fex 几个文件 使用tools文件夹下的工具simg2img将文件转换格式： ./simg2img system.fex system.img 接下来使用root权限: sudo mount -o loop system.img system 使用root权限打开nautilus文件管理器进入文件夹内部，对相应的文件进行修改； （对于boot/recovery文件的修改，可以使用xiaolu的工具） 修改之后的img文件不要卸载，接下来使用， root权限执行: sudo ./make_ext4fs -l 512M -s -a system(安卓系统挂载点的名称) ok.img(生成文件的名称) system/(当前操作的文件夹名称) 生成了相应的文件之后，接下来使用root权限执行: sudo umount system(对应操作的文件夹名称) 卸载操作文件img。 接下来，使用cp命令，将新生成的img文件，复制到.dump文件夹下，同时命名为.fex结尾 最后，使用imgrepacker命令: ./imgrepacker /skip INPHIC_H3-android4.42-20160220-QLZY.img.dump 生成可以使用PhoenixSuit线刷工具刷入机器。]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>全志H3</tag>
+        <tag>DIY固件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CJSON-学习笔记]]></title>
+    <url>%2F2016%2F06%2F18%2FCJSON-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[JSON(JavaScript Object Notation)是一种轻量级的数据交换格式，它易于人阅读和编写，同时也方便机器解析和生成，成为一种理想的数据交换语言。 CJSON是一个用c写的JSON解析器，它非常小巧，只有单个文件，使用起来非常方便，本文将简单介绍CJSON的使用方法。 JSON的详细介绍可以参考：http://www.json.org/ 。其语法是JavaScript语法的子集，可以理解成无序的、可嵌套的key-value键值对集合，这些key-value键值对是以结构体或数组的形式来组织的。 JSON的数据包括以下类型： 对象（object）是一个无序的key/value对集合。一个对象以“{”（左大括号）开始，“}”（右大括号）结束，每个key后跟一个“:”（冒号），key/value对之间使用“,”（逗号）分隔。 数组（array）是值的有序集合。一个数组以“[”（左中括号）开始，“]”（右中括号）结束，值之间使用“,”（逗号）分隔。 值（value）可以是双引号括起来的字符串（string）、数值(number)、true、false、 null、对象（object）或者数组（array）。这些结构可以嵌套。 字符串（string）是由双引号包围的任意数量Unicode字符的集合，使用反斜线转义。一个字符（character）即一个单独的字符串（character string）。 字符串与C或者Java的字符串非常相似。 数值（number）也与C或者Java的数值非常相似。除去未曾使用的八进制与十六进制格式。除去一些编码细节。 对象表示为“{}”括起来的内容，数据结构为{key1：value1, key2：value2, …}的键值对的结构，在面向对象的语言中，key为对象的属性，value为对应的属性值，这个属性值的类型可以是数字、字符串、数组、对象几种。 数组表示为“[]”括起来的内容，数据结构为 [“value1”, “value2”, “value3”, …]，取值方式和所有语言中一样，使用索引获取，字段值的类型可以是 数字、字符串、数组、对象几种。 下面是一个CJSON生成对象的方法： void ICACHE_FLASH_ATTR//此处是esp8266动态分配内存 create_objects() { cJSON *root, *coord_body, *weather_body, *weather_list, *main_body, *wind_body, *clouds_body, *sys_body; char *out; root=cJSON_CreateObject(); cJSON_AddItemToObject(root,&quot;coord&quot; , coord_body=cJSON_CreateObject()); cJSON_AddNumberToObject(coord_body, &quot;lon&quot;, 1204); cJSON_AddNumberToObject(coord_body, &quot;lat&quot;, 3736); cJSON_AddItemToObject(root, &quot;weather&quot;, weather_body=cJSON_CreateArray()); cJSON_AddItemToArray(weather_body, weather_list=cJSON_CreateObject()); cJSON_AddNumberToObject(weather_list, &quot;id&quot;, 802); cJSON_AddStringToObject(weather_list, &quot;main&quot;, &quot;Clouds&quot;); cJSON_AddStringToObject(weather_list, &quot;description&quot;, &quot;scattered clouds&quot;); cJSON_AddStringToObject(weather_list, &quot;icon&quot;, &quot;03d&quot;); cJSON_AddStringToObject(root,&quot;base&quot;,&quot;stations&quot;); cJSON_AddItemToObject(root,&quot;main&quot;,main_body=cJSON_CreateObject()); cJSON_AddNumberToObject(main_body,&quot;temp&quot;, 291989); cJSON_AddNumberToObject(main_body,&quot;pressure&quot;,10203); cJSON_AddNumberToObject(main_body,&quot;humidity&quot;, 46); cJSON_AddNumberToObject(main_body,&quot;temp_min&quot;, 291989); cJSON_AddNumberToObject(main_body,&quot;temp_max&quot;, 291989); cJSON_AddNumberToObject(main_body,&quot;sea_level&quot;, 103786); cJSON_AddNumberToObject(main_body,&quot;grnd_level&quot;, 10203); cJSON_AddItemToObject(root, &quot;wind&quot;, wind_body = cJSON_CreateObject()); cJSON_AddNumberToObject(wind_body, &quot;speed&quot;, 527); cJSON_AddNumberToObject(wind_body, &quot;deg&quot;, 680153); cJSON_AddItemToObject(root, &quot;clouds&quot;, clouds_body = cJSON_CreateObject()); cJSON_AddNumberToObject(clouds_body, &quot;all&quot;, 48); cJSON_AddNumberToObject(root, &quot;dt&quot;, 1475745655); cJSON_AddItemToObject(root, &quot;sys&quot;, sys_body = cJSON_CreateObject()); cJSON_AddNumberToObject(sys_body, &quot;message&quot;, 93); cJSON_AddStringToObject(sys_body, &quot;country&quot;, &quot;CN&quot;); cJSON_AddNumberToObject(sys_body, &quot;sunrise&quot;, 1475704711); cJSON_AddNumberToObject(sys_body, &quot;sunset&quot;, 1475746419); cJSON_AddNumberToObject(root, &quot;id&quot;, 1784953); cJSON_AddStringToObject(root, &quot;name&quot;, &quot;Zhaoyuan&quot;); cJSON_AddNumberToObject(root, &quot;cod&quot;, 200); out=cJSON_Print(root); cJSON_Delete(root); os_printf(&quot;%s\n&quot;,out); os_free(out); } 生成的JSON对象： { &quot;coord&quot;: { &quot;lon&quot;: 1204, &quot;lat&quot;: 3736 }, &quot;weather&quot;: [{ &quot;id&quot;: 802, &quot;main&quot;: &quot;Clouds&quot;, &quot;description&quot;: &quot;scattered clouds&quot;, &quot;icon&quot;: &quot;03d&quot; }], &quot;base&quot;: &quot;stations&quot;, &quot;main&quot;: { &quot;temp&quot;: 291989, &quot;pressure&quot;: 10203, &quot;humidity&quot;: 46, &quot;temp_min&quot;: 291989, &quot;temp_max&quot;: 291989, &quot;sea_level&quot;: 103786, &quot;grnd_level&quot;: 10203 }, &quot;wind&quot;: { &quot;speed&quot;: 527, &quot;deg&quot;: 680153 }, &quot;clouds&quot;: { &quot;all&quot;: 48 }, &quot;dt&quot;: 1475745655, &quot;sys&quot;: { &quot;message&quot;: 93, &quot;country&quot;: &quot;CN&quot;, &quot;sunrise&quot;: 1475704711, &quot;sunset&quot;: 1475746419 }, &quot;id&quot;: 1784953, &quot;name&quot;: &quot;Zhaoyuan&quot;, &quot;cod&quot;: 200 }]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>CJSON</tag>
+        <tag>ESP8266</tag>
+        <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[wine卸载后的菜单清理]]></title>
+    <url>%2F2016%2F06%2F17%2FUbuntu_Wine_Remove_Complete%2F</url>
+    <content type="text"><![CDATA[wine卸载后的菜单清理 wine卸载后的菜单清理 （1）删除.config/menus目录下的相应文件 （2）删除.config/menus/applications-merged目录下的相关文件 （3）打开.config/menus/applications.menu文件，删除文件中与wine有关的内容。 （4）删除以下三个文件： /usr/share/app-install/desktop/wine.desktop /usr/share/app-install/desktop/wineconfig.desktop /usr/share/app-install/desktop/winefish.desktop （5）删除下面三个目录下与wine和wine相关的内容： ~/.local/share/applications ~/.local/share/desktop-directories]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Wine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ubuntu-sdk-ndk-envconfig]]></title>
+    <url>%2F2015%2F06%2F17%2Fubuntu-sdk-ndk-envconfig%2F</url>
+    <content type="text"><![CDATA[ubuntu-sdk-ndk-envconfig 根据放置SDK与NDK文件夹的位置，将目录粘贴到如下的位置，置放到.bashrc文件中，之后执行： source ～/.bashrc export ANDROID_HOME=/home/sui/android/android-sdk export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH export NDK_HOME=/home/sui/android/android-ndk export PATH=$NDK_HOME:$PATH 环境配置是否正确，可以在终端中检验，以此输入“android”可以出现Android SDK Manager 输入“ndk-build”可以看到如下： Android NDK: Could not find application project directory ! Android NDK: Please define the NDK_PROJECT_PATH variable to point to it. /home/sui/android/android-ndk/build/core/build-local.mk:143: *** Android NDK: Aborting . Stop. 说明配置正确，进入NDK的存放目录下进入samples文件夹下，可以进入hello-jni目录下面，输入“ndk-build”，出现如下： sui@Sun:~/android/android-ndk/samples/hello-jni$ ndk-build [arm64-v8a] Gdbserver : [aarch64-linux-android-4.9] libs/arm64-v8a/gdbserver [arm64-v8a] Gdbsetup : libs/arm64-v8a/gdb.setup [x86_64] Gdbserver : [x86_64-4.9] libs/x86_64/gdbserver [x86_64] Gdbsetup : libs/x86_64/gdb.setup [mips64] Gdbserver : [mips64el-linux-android-4.9] libs/mips64/gdbserver [mips64] Gdbsetup : libs/mips64/gdb.setup [armeabi-v7a] Gdbserver : [arm-linux-androideabi-4.8] libs/armeabi-v7a/gdbserver [armeabi-v7a] Gdbsetup : libs/armeabi-v7a/gdb.setup [armeabi] Gdbserver : [arm-linux-androideabi-4.8] libs/armeabi/gdbserver [armeabi] Gdbsetup : libs/armeabi/gdb.setup [x86] Gdbserver : [x86-4.8] libs/x86/gdbserver [x86] Gdbsetup : libs/x86/gdb.setup [mips] Gdbserver : [mipsel-linux-android-4.8] libs/mips/gdbserver [mips] Gdbsetup : libs/mips/gdb.setup [arm64-v8a] Install : libhello-jni.so =&gt; libs/arm64-v8a/libhello-jni.so [x86_64] Install : libhello-jni.so =&gt; libs/x86_64/libhello-jni.so [mips64] Install : libhello-jni.so =&gt; libs/mips64/libhello-jni.so [armeabi-v7a] Install : libhello-jni.so =&gt; libs/armeabi-v7a/libhello-jni.so [armeabi] Install : libhello-jni.so =&gt; libs/armeabi/libhello-jni.so [x86] Install : libhello-jni.so =&gt; libs/x86/libhello-jni.so [mips] Install : libhello-jni.so =&gt; libs/mips/libhello-jni.so]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>sdk</tag>
+        <tag>ndk</tag>
+      </tags>
+  </entry>
+</search>
