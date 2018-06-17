@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Sui" />
+
+
+
+<meta name="description" content="UEFI引导修复教程">
+<meta name="keywords" content="windows,uefi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uefi-windows-修复">
+<meta property="og:url" content="//23171580.github.io/2016/10/07/uefi-windows-修复/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="UEFI引导修复教程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-17T08:55:39.810Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="uefi-windows-修复">
+<meta name="twitter:description" content="UEFI引导修复教程">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>uefi-windows-修复 | 我的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Sui</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Sun Blog</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:sun521xiaolei@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/23171580" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anaconda/">Anaconda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/">Bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CJSON/">CJSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIYfirmware/">DIY固件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESP8266/">ESP8266</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT-RTOS-SDK/">IOT_RTOS_SDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeMCU/">NodeMCU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NonOS-SDK/">NonOS_SDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OV摄像头/">OV摄像头</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Padavan/">Padavan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UC浏览器/">UC浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wine/">Wine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arduino-esp8266/">arduino-esp8266</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bcompare/">bcompare</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/espwebframework/">espwebframework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/">jdk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ndk/">ndk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/noduino-sdk/">noduino-sdk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sdk/">sdk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uefi/">uefi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书签导出HTML/">书签导出HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/allwinnerh3/">全志H3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分类/">分类</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Sui</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Sui</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Sun Blog</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:sun521xiaolei@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/23171580" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-uefi-windows-修复" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/07/uefi-windows-修复/" class="article-date">
+      <time datetime="2016-10-07T08:27:15.000Z" itemprop="datePublished">2016-10-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      uefi-windows-修复
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/journal/">日志</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/uefi/">uefi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>UEFI引导修复教程
+</code></pre><a id="more"></a>
+<p>UEFI引导修复教程</p>
+<p>当uefi引导文件损坏，或ghost还原64位系统到C盘，因无uefi引导还是不能启动系统。</p>
+<p>怎么修复UEFI引导呢？</p>
+<p>○、UEFI引导基本原理</p>
+<p>1.esp引导分区</p>
+<p>esp磁盘分区是gpt格式硬盘放efi引导文件的磁盘，在mbr格式硬盘中也可以由任一fat格式磁盘分区代替</p>
+<p>2.efi文件结构</p>
+<pre><code>efi\boot\bootx64.efi
+efi\microsoft\boot\bcd
+</code></pre><p>3.efi启动过程</p>
+<p>uefi bios启动时，自动查找硬盘下esp分区的bootx64.efi，然后由bootx64.efi引导</p>
+<p>efi下的bcd文件，由bcd引导指定系统文件（一般为c:\windows\system32\winload.efi）</p>
+<p>一、用bcbboot自动修复</p>
+<p>我们建议大家启动64位8PE，用它带的bcdboot来修复。</p>
+<p>（一）指定esp分区修复</p>
+<p>环境为64位8PE，bios/uefi启动进入下都可以</p>
+<p>1.启动64位8PE，并用esp分区挂载器或diskgenuis挂载esp分区</p>
+<p>2.打开cmd命令行，输入以下命令并运行</p>
+<pre><code>bcdboot c:\windows /s o: /f uefi /l zh-cn
+其中：c:\windows 硬盘系统目录，根据实际情况修改
+/s o: 指定esp分区所在磁盘，根据实际情况修改
+/f uefi 指定启动方式为uefi
+/l zh-cn 指定uefi启动界面语言为简体中文
+注：64位7PE不带/s参数，故7PE不支持bios启动下修复
+</code></pre><p>（二）不指定esp分区修复</p>
+<p>环境为64位7或8PE，只有uefi启动进入PE才可以</p>
+<p>不用挂载esp分区，直接在cmd命令行下执行：</p>
+<pre><code>bcdboot c:\windows /l zh-cn
+其中 c:\windows 硬盘系统目录，根据实际情况修改
+/l zh-cn 指定uefi启动界面语言为简体中文
+注：在8PE中，我们也可以在uefi启动进入pe后，挂载esp分区用方法（一）修复
+</code></pre><p>（三）用“UEFI引导自动修复”脚本修复</p>
+<p>这个脚本，其实就是用了8PE的bcdboot，来修复uefi引导。测试可以在2003 7 8 PE中自动修复uefi引导。</p>
+<p>这里提供两套，第一套是程序版,为离弃制作；第二套是pecmd脚本版，由caocaofff制作，都相当完美。</p>
+<p>二、用bootice手动修复</p>
+<p>从efi引导启动过程来看，虽然它的文件很多，但主要用到的就是两文件，我们完全可以在各pe下挂载esp分区，从硬盘系统中复制bootx64.efi文件，然后用用bootice制作好bcd，就完成efi引导修复。</p>
+<p>1.启动任一pe,用esp分区挂载器或diskgenuis挂载esp分区</p>
+<p>2.查看esp分区是否可正常读写，如不正常可重新格式化为fat16分区格式。</p>
+<p>3.在esp分区中建立如下空文件夹结构</p>
+<pre><code>\efi\boot\ （bootx64.efi等复制）
+\efi\microsoft\boot\ （bcd等建立）
+</code></pre><p>4.复制硬盘系统中的bootmgfw.efi（一般在c:\windows\boot\efi下）到esp分区的\efi\boot\下，并重命名为bootx64.efi</p>
+<p>5.打开bootice软件，有esp分区的\efi\microsoft\boot\下新建立一bcd文件，打开并编辑bcd文件，添加“windows vista\7\8启动项，指定磁盘为硬盘系统盘在的盘，指定启动分区为硬盘系统分区（一般为c:）指定启动文件为：\Windows\system32\winload.efi， 是.efi，不是.exe，要手工改过来最后保存当前系统设置并退出。</p>
+<p>这样子,精简的UEFI引导就手工修复了，实机和虚拟机测试通过。</p>
+<p>注：xpPE不能识别gpt格式的硬盘分区，用2003PE中的disk.sys替换xpPE内核中的相应文件，就可以让xpPE也能识别gpt磁盘格式分区指定启动分区不是esp分区所在分区，就是硬盘64位7 8 系统所在分区指定启动文件为：\Windows\system32\winload.efi， 是.efi，不是.exe，要手工改过来</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/10/07/uefi-windows-修复/">uefi-windows-修复</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Sui</a></p>
+        <p><span>发布时间:</span>2016-10-07, 16:27:15</p>
+        <p><span>最后更新:</span>2018-06-17, 16:55:39</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/07/uefi-windows-修复/" title="uefi-windows-修复">//23171580.github.io/2016/10/07/uefi-windows-修复/</a>
+            <span class="copy-path" data-clipboard-text="原文: //23171580.github.io/2016/10/07/uefi-windows-修复/　　作者: Sui" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/10/25/UC浏览器书签导出方法/">
+                    UC浏览器书签导出方法
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/10/07/ubuntu_jdk_install_config/">
+                    ubuntu_jdk_install_config
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"uefi-windows-修复　| 我的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/10/25/UC浏览器书签导出方法/" title="上一篇: UC浏览器书签导出方法">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/10/07/ubuntu_jdk_install_config/" title="下一篇: ubuntu_jdk_install_config">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/06/17/Linux下查找并删除特定文件或文件夹/">Linux下批量搜索并删除对应文件/文件夹</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/12/Anaconda安装使用笔记/">Anaconda安装使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/12/BeyondCompare-install-Ubuntu-16.04/">BeyondCompare-install-Ubuntu-16.04</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/25/UC浏览器书签导出方法/">UC浏览器书签导出方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/07/uefi-windows-修复/">uefi-windows-修复</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/07/ubuntu_jdk_install_config/">ubuntu_jdk_install_config</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/02/ESP8266-NonOS_SDK&IOT_RTOS_SDK/">ESP8266-NonOS_SDK&IOT_RTOS_SDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/01/ESP8266开发板相关开源项目使用介绍/">ESP8266开发板相关开源项目使用介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/Padavan自定义功能编译日志/">Padavan自定义功能编译日志</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/Hexo-博客搭建记录/">Hexo-博客搭建记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/29/OV摄像头整理分类/">OV摄像头整理分类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/Ubuntu使用过程日志/">Ubuntu使用过程日志</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/env-jdk-config-win-ubuntu/">在Ubuntu和Windows环境下配置JAVA环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/18/allwinner-tools/">全志H3固件解包打包方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/18/CJSON-学习笔记/">CJSON-学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/17/Ubuntu_Wine_Remove_Complete/">wine卸载后的菜单清理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/06/17/ubuntu-sdk-ndk-envconfig/">ubuntu-sdk-ndk-envconfig</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2015-2018 Sui
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
