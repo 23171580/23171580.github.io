@@ -67,11 +67,11 @@
   </entry>
   
   <entry>
-    <title>BeyondCompare-install-Ubuntu-16.04</title>
+    <title>BeyondCompare-install-ubuntu-16.04</title>
     <link href="http://23171580.github.io/2018/06/12/BeyondCompare-install-ubuntu-16.04/"/>
     <id>http://23171580.github.io/2018/06/12/BeyondCompare-install-ubuntu-16.04/</id>
     <published>2018-06-12T00:39:02.000Z</published>
-    <updated>2018-06-17T15:11:50.946Z</updated>
+    <updated>2018-06-18T08:05:36.035Z</updated>
     
     <content type="html"><![CDATA[<pre><code>解决Ubuntu16.04环境下安装Bcompare时遇到的问题。</code></pre><a id="more"></a><p>解决Ubuntu16.04环境下安装Bcompare时遇到的问题。</p><p>首先是遇到从Ubuntu14.04升级到16.04后无法打开继续使用的问题。</p><p>由于无法找到安装运行出错原因，就使用install.sh/与uninstall.sh两个脚本，分别进行了root安装和普通用户安装。彻底请理了之前使用的配置出错问题。</p><p>之后按照安装install.sh步骤，安装到了/usr/lib/beyondcompare目录下面，使用keygen破解文件，在/usr/lib/beyondcompare目录下生成破解秘钥。</p><p>打开Bcompare时，没有反应，于是查找问题解决方法。</p><h2 id="需要安装以下依赖程序"><a href="#需要安装以下依赖程序" class="headerlink" title="需要安装以下依赖程序"></a>需要安装以下依赖程序</h2><pre><code>sudo apt-get install libsm-dev:i386 libice-dev:i386 libxrandr-dev:i386 libxrender-dev:i386 libxcursor-dev:i386 libxinerama-dev:i386 libxft-dev:i386 libfreetype6-dev:i386</code></pre><p>安装成功后，打开Bcompare一切正常，将生成的破解秘钥粘贴激活软件。</p>]]></content>
     
@@ -117,31 +117,6 @@
   </entry>
   
   <entry>
-    <title>uefi-windows-修复</title>
-    <link href="http://23171580.github.io/2016/10/07/uefi-windows-%E4%BF%AE%E5%A4%8D/"/>
-    <id>http://23171580.github.io/2016/10/07/uefi-windows-修复/</id>
-    <published>2016-10-07T08:27:15.000Z</published>
-    <updated>2018-06-17T15:13:54.254Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>UEFI引导修复教程</code></pre><a id="more"></a><p>UEFI引导修复教程</p><p>当uefi引导文件损坏，或ghost还原64位系统到C盘，因无uefi引导还是不能启动系统。</p><p>怎么修复UEFI引导呢？</p><p>○、UEFI引导基本原理</p><p>1.esp引导分区</p><p>esp磁盘分区是gpt格式硬盘放efi引导文件的磁盘，在mbr格式硬盘中也可以由任一fat格式磁盘分区代替</p><p>2.efi文件结构</p><pre><code>efi\boot\bootx64.efiefi\microsoft\boot\bcd</code></pre><p>3.efi启动过程</p><p>uefi bios启动时，自动查找硬盘下esp分区的bootx64.efi，然后由bootx64.efi引导</p><p>efi下的bcd文件，由bcd引导指定系统文件（一般为c:\windows\system32\winload.efi）</p><p>一、用bcbboot自动修复</p><p>我们建议大家启动64位8PE，用它带的bcdboot来修复。</p><p>（一）指定esp分区修复</p><p>环境为64位8PE，bios/uefi启动进入下都可以</p><p>1.启动64位8PE，并用esp分区挂载器或diskgenuis挂载esp分区</p><p>2.打开cmd命令行，输入以下命令并运行</p><pre><code>bcdboot c:\windows /s o: /f uefi /l zh-cn其中：c:\windows 硬盘系统目录，根据实际情况修改/s o: 指定esp分区所在磁盘，根据实际情况修改/f uefi 指定启动方式为uefi/l zh-cn 指定uefi启动界面语言为简体中文注：64位7PE不带/s参数，故7PE不支持bios启动下修复</code></pre><p>（二）不指定esp分区修复</p><p>环境为64位7或8PE，只有uefi启动进入PE才可以</p><p>不用挂载esp分区，直接在cmd命令行下执行：</p><pre><code>bcdboot c:\windows /l zh-cn其中 c:\windows 硬盘系统目录，根据实际情况修改/l zh-cn 指定uefi启动界面语言为简体中文注：在8PE中，我们也可以在uefi启动进入pe后，挂载esp分区用方法（一）修复</code></pre><p>（三）用“UEFI引导自动修复”脚本修复</p><p>这个脚本，其实就是用了8PE的bcdboot，来修复uefi引导。测试可以在2003 7 8 PE中自动修复uefi引导。</p><p>这里提供两套，第一套是程序版,为离弃制作；第二套是pecmd脚本版，由caocaofff制作，都相当完美。</p><p>二、用bootice手动修复</p><p>从efi引导启动过程来看，虽然它的文件很多，但主要用到的就是两文件，我们完全可以在各pe下挂载esp分区，从硬盘系统中复制bootx64.efi文件，然后用用bootice制作好bcd，就完成efi引导修复。</p><p>1.启动任一pe,用esp分区挂载器或diskgenuis挂载esp分区</p><p>2.查看esp分区是否可正常读写，如不正常可重新格式化为fat16分区格式。</p><p>3.在esp分区中建立如下空文件夹结构</p><pre><code>\efi\boot\ （bootx64.efi等复制）\efi\microsoft\boot\ （bcd等建立）</code></pre><p>4.复制硬盘系统中的bootmgfw.efi（一般在c:\windows\boot\efi下）到esp分区的\efi\boot\下，并重命名为bootx64.efi</p><p>5.打开bootice软件，有esp分区的\efi\microsoft\boot\下新建立一bcd文件，打开并编辑bcd文件，添加“windows vista\7\8启动项，指定磁盘为硬盘系统盘在的盘，指定启动分区为硬盘系统分区（一般为c:）指定启动文件为：\Windows\system32\winload.efi， 是.efi，不是.exe，要手工改过来最后保存当前系统设置并退出。</p><p>这样子,精简的UEFI引导就手工修复了，实机和虚拟机测试通过。</p><p>注：xpPE不能识别gpt格式的硬盘分区，用2003PE中的disk.sys替换xpPE内核中的相应文件，就可以让xpPE也能识别gpt磁盘格式分区指定启动分区不是esp分区所在分区，就是硬盘64位7 8 系统所在分区指定启动文件为：\Windows\system32\winload.efi， 是.efi，不是.exe，要手工改过来</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;pre&gt;&lt;code&gt;UEFI引导修复教程
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
-    
-    
-      <category term="windows" scheme="http://23171580.github.io/tags/windows/"/>
-    
-      <category term="uefi" scheme="http://23171580.github.io/tags/uefi/"/>
-    
-  </entry>
-  
-  <entry>
     <title>ubuntu_jdk_install_config</title>
     <link href="http://23171580.github.io/2016/10/07/ubuntu_jdk_install_config/"/>
     <id>http://23171580.github.io/2016/10/07/ubuntu_jdk_install_config/</id>
@@ -167,6 +142,31 @@
   </entry>
   
   <entry>
+    <title>uefi-windows-修复</title>
+    <link href="http://23171580.github.io/2016/10/07/uefi-windows-%E4%BF%AE%E5%A4%8D/"/>
+    <id>http://23171580.github.io/2016/10/07/uefi-windows-修复/</id>
+    <published>2016-10-07T08:27:15.000Z</published>
+    <updated>2018-06-17T15:13:54.254Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>UEFI引导修复教程</code></pre><a id="more"></a><p>UEFI引导修复教程</p><p>当uefi引导文件损坏，或ghost还原64位系统到C盘，因无uefi引导还是不能启动系统。</p><p>怎么修复UEFI引导呢？</p><p>○、UEFI引导基本原理</p><p>1.esp引导分区</p><p>esp磁盘分区是gpt格式硬盘放efi引导文件的磁盘，在mbr格式硬盘中也可以由任一fat格式磁盘分区代替</p><p>2.efi文件结构</p><pre><code>efi\boot\bootx64.efiefi\microsoft\boot\bcd</code></pre><p>3.efi启动过程</p><p>uefi bios启动时，自动查找硬盘下esp分区的bootx64.efi，然后由bootx64.efi引导</p><p>efi下的bcd文件，由bcd引导指定系统文件（一般为c:\windows\system32\winload.efi）</p><p>一、用bcbboot自动修复</p><p>我们建议大家启动64位8PE，用它带的bcdboot来修复。</p><p>（一）指定esp分区修复</p><p>环境为64位8PE，bios/uefi启动进入下都可以</p><p>1.启动64位8PE，并用esp分区挂载器或diskgenuis挂载esp分区</p><p>2.打开cmd命令行，输入以下命令并运行</p><pre><code>bcdboot c:\windows /s o: /f uefi /l zh-cn其中：c:\windows 硬盘系统目录，根据实际情况修改/s o: 指定esp分区所在磁盘，根据实际情况修改/f uefi 指定启动方式为uefi/l zh-cn 指定uefi启动界面语言为简体中文注：64位7PE不带/s参数，故7PE不支持bios启动下修复</code></pre><p>（二）不指定esp分区修复</p><p>环境为64位7或8PE，只有uefi启动进入PE才可以</p><p>不用挂载esp分区，直接在cmd命令行下执行：</p><pre><code>bcdboot c:\windows /l zh-cn其中 c:\windows 硬盘系统目录，根据实际情况修改/l zh-cn 指定uefi启动界面语言为简体中文注：在8PE中，我们也可以在uefi启动进入pe后，挂载esp分区用方法（一）修复</code></pre><p>（三）用“UEFI引导自动修复”脚本修复</p><p>这个脚本，其实就是用了8PE的bcdboot，来修复uefi引导。测试可以在2003 7 8 PE中自动修复uefi引导。</p><p>这里提供两套，第一套是程序版,为离弃制作；第二套是pecmd脚本版，由caocaofff制作，都相当完美。</p><p>二、用bootice手动修复</p><p>从efi引导启动过程来看，虽然它的文件很多，但主要用到的就是两文件，我们完全可以在各pe下挂载esp分区，从硬盘系统中复制bootx64.efi文件，然后用用bootice制作好bcd，就完成efi引导修复。</p><p>1.启动任一pe,用esp分区挂载器或diskgenuis挂载esp分区</p><p>2.查看esp分区是否可正常读写，如不正常可重新格式化为fat16分区格式。</p><p>3.在esp分区中建立如下空文件夹结构</p><pre><code>\efi\boot\ （bootx64.efi等复制）\efi\microsoft\boot\ （bcd等建立）</code></pre><p>4.复制硬盘系统中的bootmgfw.efi（一般在c:\windows\boot\efi下）到esp分区的\efi\boot\下，并重命名为bootx64.efi</p><p>5.打开bootice软件，有esp分区的\efi\microsoft\boot\下新建立一bcd文件，打开并编辑bcd文件，添加“windows vista\7\8启动项，指定磁盘为硬盘系统盘在的盘，指定启动分区为硬盘系统分区（一般为c:）指定启动文件为：\Windows\system32\winload.efi， 是.efi，不是.exe，要手工改过来最后保存当前系统设置并退出。</p><p>这样子,精简的UEFI引导就手工修复了，实机和虚拟机测试通过。</p><p>注：xpPE不能识别gpt格式的硬盘分区，用2003PE中的disk.sys替换xpPE内核中的相应文件，就可以让xpPE也能识别gpt磁盘格式分区指定启动分区不是esp分区所在分区，就是硬盘64位7 8 系统所在分区指定启动文件为：\Windows\system32\winload.efi， 是.efi，不是.exe，要手工改过来</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;UEFI引导修复教程
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
+    
+    
+      <category term="windows" scheme="http://23171580.github.io/tags/windows/"/>
+    
+      <category term="uefi" scheme="http://23171580.github.io/tags/uefi/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ESP8266-NonOS_SDK&amp;IOT_RTOS_SDK</title>
     <link href="http://23171580.github.io/2016/10/02/ESP8266-NonOS_SDK&amp;IOT_RTOS_SDK/"/>
     <id>http://23171580.github.io/2016/10/02/ESP8266-NonOS_SDK&amp;IOT_RTOS_SDK/</id>
@@ -185,9 +185,9 @@
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
-      <category term="ESP8266" scheme="http://23171580.github.io/tags/ESP8266/"/>
-    
       <category term="NonOS_SDK" scheme="http://23171580.github.io/tags/NonOS-SDK/"/>
+    
+      <category term="ESP8266" scheme="http://23171580.github.io/tags/ESP8266/"/>
     
       <category term="IOT_RTOS_SDK" scheme="http://23171580.github.io/tags/IOT-RTOS-SDK/"/>
     
@@ -325,11 +325,11 @@
   </entry>
   
   <entry>
-    <title>在Ubuntu和Windows环境下配置JAVA环境</title>
+    <title>在ubuntu和windows环境下配置JAVA环境</title>
     <link href="http://23171580.github.io/2016/07/22/env-jdk-config-win-ubuntu/"/>
     <id>http://23171580.github.io/2016/07/22/env-jdk-config-win-ubuntu/</id>
     <published>2016-07-22T07:23:16.000Z</published>
-    <updated>2018-06-17T15:08:59.576Z</updated>
+    <updated>2018-06-18T08:06:15.901Z</updated>
     
     <content type="html"><![CDATA[<pre><code>JAVA_HOME   C:\Program Files\Java\jdk1.7.0_51 JRE_HOME    C:\Program Files\Java\jre7CLASSPATH   .%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jarPATH＝&quot;.:/usr/local/jdk1.6.0_38/bin&quot;CLASSPATH=&quot;.:/usr/local/jdk1.6.0_38/lib&quot;update-alternatives --install /usr/bin/java java /usr/local/jdk1.6.0_38/bin/java 300update-alternatives --install /usr/bin/javac javac /usr/local/jdk1.6.0_38/bin/javac 300</code></pre><a id="more"></a><p>windows环境从官网下载相应的安装包并安装后,</p><p>点击系统变量方框下的“新建”，填入以上对应的变量值：</p><pre><code>JAVA_HOME   C:\Program Files\Java\jdk1.7.0_51 JRE_HOME    C:\Program Files\Java\jre7CLASSPATH   .%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</code></pre><p>编辑Path变量，不是新建，填入</p><pre><code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</code></pre><p>注意如果原来的Path前没有;(分号）的话，应加</p><pre><code>;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</code></pre><p>最后使用cmd,输入命令</p><pre><code>java -versionjavac</code></pre><p>查看是否出现相应提示信息。</p><p>Ubutnu环境下：</p><p>操作文件夹：/usr/local</p><p>jdk的bin文件放置文件夹下</p><p>设置权限：</p><pre><code>chmod u+x jdk.....bin</code></pre><p>执行：</p><pre><code>./jdk......bin</code></pre><p>环境设置：</p><pre><code>gedit /etc/environment</code></pre><p>在environment中修改，出现如下部分</p><pre><code>JAVA_HOME=/usr/local/jdk1.6.0_38CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/libPATH＝$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH</code></pre><p>设置系统默认环境的java环境：</p><pre><code>update-alternatives --install /usr/bin/java java /usr/local/jdk1.6.0_38/bin/java 300update-alternatives --install /usr/bin/javac javac /usr/local/jdk1.6.0_38/bin/javac 300</code></pre><p>通过这一步将我们安装的jdk加入java选单。</p><pre><code>update-alternatives --config java</code></pre><p>通过这一步选择系统默认的jdk<br>之后，在终端中查看：</p><pre><code>java -versionjavac</code></pre>]]></content>
     
@@ -391,8 +391,8 @@ LiveSuit&amp;apos;s &amp;amp; PhoenixSuit&amp;apos;s firmware image unpacker/pac
   
   <entry>
     <title>CJSON-学习笔记</title>
-    <link href="http://23171580.github.io/2016/06/18/CJson-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://23171580.github.io/2016/06/18/CJson-学习笔记/</id>
+    <link href="http://23171580.github.io/2016/06/18/CJSON-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://23171580.github.io/2016/06/18/CJSON-学习笔记/</id>
     <published>2016-06-18T01:39:02.000Z</published>
     <updated>2018-06-17T15:11:44.935Z</updated>
     
@@ -408,9 +408,9 @@ LiveSuit&amp;apos;s &amp;amp; PhoenixSuit&amp;apos;s firmware image unpacker/pac
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
-      <category term="CJSON" scheme="http://23171580.github.io/tags/CJSON/"/>
-    
       <category term="ESP8266" scheme="http://23171580.github.io/tags/ESP8266/"/>
+    
+      <category term="CJSON" scheme="http://23171580.github.io/tags/CJSON/"/>
     
       <category term="C" scheme="http://23171580.github.io/tags/C/"/>
     
