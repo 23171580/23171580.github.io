@@ -68,8 +68,8 @@
   
   <entry>
     <title>BeyondCompare-install-Ubuntu-16.04</title>
-    <link href="http://23171580.github.io/2018/06/12/BeyondCompare-install-Ubuntu-16.04/"/>
-    <id>http://23171580.github.io/2018/06/12/BeyondCompare-install-Ubuntu-16.04/</id>
+    <link href="http://23171580.github.io/2018/06/12/BeyondCompare-install-ubuntu-16.04/"/>
+    <id>http://23171580.github.io/2018/06/12/BeyondCompare-install-ubuntu-16.04/</id>
     <published>2018-06-12T00:39:02.000Z</published>
     <updated>2018-06-17T15:11:50.946Z</updated>
     
@@ -92,11 +92,11 @@
   </entry>
   
   <entry>
-    <title>UC浏览器书签导出方法</title>
-    <link href="http://23171580.github.io/2016/10/25/UC%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B9%A6%E7%AD%BE%E5%AF%BC%E5%87%BA%E6%96%B9%E6%B3%95/"/>
-    <id>http://23171580.github.io/2016/10/25/UC浏览器书签导出方法/</id>
+    <title>UC国际版浏览器书签导出方法</title>
+    <link href="http://23171580.github.io/2016/10/25/UC%E5%9B%BD%E9%99%85%E7%89%88%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B9%A6%E7%AD%BE%E5%AF%BC%E5%87%BA%E6%96%B9%E6%B3%95/"/>
+    <id>http://23171580.github.io/2016/10/25/UC国际版浏览器书签导出方法/</id>
     <published>2016-10-25T08:27:15.000Z</published>
-    <updated>2018-06-17T15:13:39.160Z</updated>
+    <updated>2018-06-18T08:03:08.282Z</updated>
     
     <content type="html"><![CDATA[<pre><code>UC浏览器最新版本的导入导出好像越来越垃圾了。就连国际版UC浏览器的同步功能导出HTML书签都做不到。这可不是好现象。抓紧导出书签，转战chrome。。。</code></pre><a id="more"></a><p>首先，我在用的浏览器版本是（国际版11.0.5.850）</p><p>为了放置数据丢失，我把书签先备份一下。（.db格式）</p><p>然后，从网上下载国际版9.8.9UC浏览器，直接覆盖安装（data/app/com.UCMobile.intl.apk）</p><p>接下来，重启手机，待重启完毕后，打开旧版9.8.9浏览器的书签，备份（这里会得到.aucf格式的备份文件）</p><p>然后使用旧版本（9.9.8）中国版本，导入书签，找到刚才备份的aucf格式书签备份文件，导入。然后使用UC账号，同步书签到<a href="http://bookmark.yun.uc.cn" target="_blank" rel="noopener">http://bookmark.yun.uc.cn</a></p><p>打开<a href="http://bookmark.yun.uc.cn" target="_blank" rel="noopener">http://bookmark.yun.uc.cn</a></p><p>全选书签，导出HTML文件，即可将书签任意导入firefox或者chrome浏览器。</p>]]></content>
     
@@ -112,32 +112,7 @@
     
       <category term="书签导出HTML" scheme="http://23171580.github.io/tags/%E4%B9%A6%E7%AD%BE%E5%AF%BC%E5%87%BAHTML/"/>
     
-      <category term="UC浏览器" scheme="http://23171580.github.io/tags/UC%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu_jdk_install_config</title>
-    <link href="http://23171580.github.io/2016/10/07/ubuntu_jdk_install_config/"/>
-    <id>http://23171580.github.io/2016/10/07/ubuntu_jdk_install_config/</id>
-    <published>2016-10-07T08:27:15.000Z</published>
-    <updated>2018-06-17T15:11:24.729Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>ubuntu_jdk_install_config</code></pre><a id="more"></a><p>ubuntu 14.04 下通过apt-get 安装jdk</p><p>Installing default JRE/JDK</p><pre><code>sudo apt-get updatesudo apt-get install default-jresudo apt-get install default-jdk</code></pre><p>Installing Oracle JDK</p><pre><code>sudo apt-get install python-software-propertiessudo add-apt-repository ppa:webupd8team/javasudo apt-get update</code></pre><p>Oracle JDK 6(旧版本)</p><pre><code>sudo apt-get install oracle-java6-installer</code></pre><p>Oracle JDK 7(较新的稳定版本)</p><pre><code>sudo apt-get install oracle-java7-installer</code></pre><p>Oracle JDK 8(最新预览版本)</p><pre><code>sudo apt-get install oracle-java8-installer</code></pre><p>Managing Java</p><pre><code>sudo update-alternatives --config java有 2 个候选项可用于替换 java (提供 /usr/bin/java)。选择 路径 优先级 状态0 /usr/lib/jvm/java-7-oracle/jre/bin/java 1072 自动模式1 /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java 1071 手动模式2 /usr/lib/jvm/java-7-oracle/jre/bin/java 1072 手动模式要维持当前值[*]请按回车键，或者键入选择的编号：（我是按了回车，没改）sudo update-alternatives --config javac（同上）</code></pre><p>Setting the “JAVA_HOME” environment variable</p><p>通过这个命令可以看到java安装路径：</p><pre><code>sudo update-alternatives --config java根据设置时所选项来确定path，我是用默认的第一个，所以path为：&quot;/usr/lib/jvm/java-7-oracle&quot;sudo vim /etc/environment在文件最后添加上：JAVA_HOME=&quot;/usr/lib/jvm/java-7-oracle&quot;保存退出(:wq)，在终端输入：source /etc/environment然后输入：echo $JAVA_HOME</code></pre><p>如果输出和我们设置是一样的，说明我们安装成功了，这时你还可以看下java的版本：</p><pre><code>java -version</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;pre&gt;&lt;code&gt;ubuntu_jdk_install_config
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
-    
-    
-      <category term="ubuntu" scheme="http://23171580.github.io/tags/ubuntu/"/>
-    
-      <category term="jdk" scheme="http://23171580.github.io/tags/jdk/"/>
+      <category term="UCBrowser" scheme="http://23171580.github.io/tags/UCBrowser/"/>
     
   </entry>
   
@@ -163,6 +138,31 @@
       <category term="windows" scheme="http://23171580.github.io/tags/windows/"/>
     
       <category term="uefi" scheme="http://23171580.github.io/tags/uefi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu_jdk_install_config</title>
+    <link href="http://23171580.github.io/2016/10/07/ubuntu_jdk_install_config/"/>
+    <id>http://23171580.github.io/2016/10/07/ubuntu_jdk_install_config/</id>
+    <published>2016-10-07T08:27:15.000Z</published>
+    <updated>2018-06-17T15:11:24.729Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>ubuntu_jdk_install_config</code></pre><a id="more"></a><p>ubuntu 14.04 下通过apt-get 安装jdk</p><p>Installing default JRE/JDK</p><pre><code>sudo apt-get updatesudo apt-get install default-jresudo apt-get install default-jdk</code></pre><p>Installing Oracle JDK</p><pre><code>sudo apt-get install python-software-propertiessudo add-apt-repository ppa:webupd8team/javasudo apt-get update</code></pre><p>Oracle JDK 6(旧版本)</p><pre><code>sudo apt-get install oracle-java6-installer</code></pre><p>Oracle JDK 7(较新的稳定版本)</p><pre><code>sudo apt-get install oracle-java7-installer</code></pre><p>Oracle JDK 8(最新预览版本)</p><pre><code>sudo apt-get install oracle-java8-installer</code></pre><p>Managing Java</p><pre><code>sudo update-alternatives --config java有 2 个候选项可用于替换 java (提供 /usr/bin/java)。选择 路径 优先级 状态0 /usr/lib/jvm/java-7-oracle/jre/bin/java 1072 自动模式1 /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java 1071 手动模式2 /usr/lib/jvm/java-7-oracle/jre/bin/java 1072 手动模式要维持当前值[*]请按回车键，或者键入选择的编号：（我是按了回车，没改）sudo update-alternatives --config javac（同上）</code></pre><p>Setting the “JAVA_HOME” environment variable</p><p>通过这个命令可以看到java安装路径：</p><pre><code>sudo update-alternatives --config java根据设置时所选项来确定path，我是用默认的第一个，所以path为：&quot;/usr/lib/jvm/java-7-oracle&quot;sudo vim /etc/environment在文件最后添加上：JAVA_HOME=&quot;/usr/lib/jvm/java-7-oracle&quot;保存退出(:wq)，在终端输入：source /etc/environment然后输入：echo $JAVA_HOME</code></pre><p>如果输出和我们设置是一样的，说明我们安装成功了，这时你还可以看下java的版本：</p><pre><code>java -version</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;ubuntu_jdk_install_config
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
+    
+    
+      <category term="ubuntu" scheme="http://23171580.github.io/tags/ubuntu/"/>
+    
+      <category term="jdk" scheme="http://23171580.github.io/tags/jdk/"/>
     
   </entry>
   
@@ -303,10 +303,10 @@
   
   <entry>
     <title>Ubuntu使用过程日志</title>
-    <link href="http://23171580.github.io/2016/07/22/Ubuntu%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E6%97%A5%E5%BF%97/"/>
-    <id>http://23171580.github.io/2016/07/22/Ubuntu使用过程日志/</id>
+    <link href="http://23171580.github.io/2016/07/22/ubuntu%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E6%97%A5%E5%BF%97/"/>
+    <id>http://23171580.github.io/2016/07/22/ubuntu使用过程日志/</id>
     <published>2016-07-22T07:47:44.000Z</published>
-    <updated>2018-06-17T15:13:20.663Z</updated>
+    <updated>2018-06-18T07:58:06.754Z</updated>
     
     <content type="html"><![CDATA[<pre><code>使用Ubuntu时遇到的一些小问题解决方法</code></pre><a id="more"></a><p>彻底卸载预装软件libreoffice命令：</p><pre><code>sudo apt-get purge libreoffice-core</code></pre><p>无法清空回收站时处理方法：</p><p>例如：无法删除的用户回收站位置：</p><pre><code>.local/share/Trash/files</code></pre><p>使用命令：</p><pre><code>sudo rm -rf *</code></pre><p>Ubuntu和主机共享互传文件：</p><pre><code>sudo mkdir /mnt/sharesudo mount -t vboxsf games  /mnt/share</code></pre><p>其中”games”是之前创建的共享文件夹的名字。</p><p>OK，现在Ubuntu和主机可以互传文件了。</p><p>Ubuntu默认的网络连接配置软件包名称</p><pre><code>network-manager-gnome</code></pre><p>Ubuntu日常垃圾文件清理软件：</p><pre><code>ubuntu-tweak</code></pre><p>Ubuntu挂载MTP:</p><pre><code>sudo apt-get install libusb-devwget http://downloads.sourceforge.net/project/libmtp/libmtp/1.1.1/libmtp-1.1.1.tar.gztar -xvf libmtp-1.1.1.tar.gzcd libmtp-1.1.1./configure --prefix=/usrmakesudo make installsudo cp 69-libmtp.rules /etc/udev/rules.d (mayby not needed)sudo service udev restart</code></pre><p>Android 3.0+开始支持MTP挂载方式，米2也支持，</p><p>但是米2的操作说明却好像有些问题。</p><p>正确的方法如下：</p><p>1.将MTP设备连接至PC机;</p><p>2.如果是第一次使用MTP设备需要安装以下软件，否则可以跳过此步骤：</p><pre><code>sudo apt-get install mtpfs libfuse-dev libmad0-dev</code></pre><p>3.建立挂载点</p><pre><code>sudo mkdir /media/mtp</code></pre><p>4.修改权限（小米的说明中少了这一步，所以打不开）</p><pre><code>sudo chmod 775 /media/mtp</code></pre><p>5.挂载MTP设备</p><pre><code>sudo mtpfs -o allow_other /media/mtp</code></pre><p>挂载完成后可以用文件浏览器像查看本地的磁盘一样查看文件，</p><p>也可以用命令传输文件（和本地的命令一样），如：</p><pre><code>cp video.mp4 /media/mtp/Movies/</code></pre><p>6.卸载设备</p><pre><code>sudo umount /media/mtp</code></pre>]]></content>
     
@@ -320,7 +320,7 @@
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
-      <category term="Ubuntu" scheme="http://23171580.github.io/tags/Ubuntu/"/>
+      <category term="ubuntu" scheme="http://23171580.github.io/tags/ubuntu/"/>
     
   </entry>
   
@@ -391,8 +391,8 @@ LiveSuit&amp;apos;s &amp;amp; PhoenixSuit&amp;apos;s firmware image unpacker/pac
   
   <entry>
     <title>CJSON-学习笔记</title>
-    <link href="http://23171580.github.io/2016/06/18/CJSON-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://23171580.github.io/2016/06/18/CJSON-学习笔记/</id>
+    <link href="http://23171580.github.io/2016/06/18/CJson-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://23171580.github.io/2016/06/18/CJson-学习笔记/</id>
     <published>2016-06-18T01:39:02.000Z</published>
     <updated>2018-06-17T15:11:44.935Z</updated>
     
@@ -418,10 +418,10 @@ LiveSuit&amp;apos;s &amp;amp; PhoenixSuit&amp;apos;s firmware image unpacker/pac
   
   <entry>
     <title>wine卸载后的菜单清理</title>
-    <link href="http://23171580.github.io/2016/06/17/Ubuntu_Wine_Remove_Complete/"/>
-    <id>http://23171580.github.io/2016/06/17/Ubuntu_Wine_Remove_Complete/</id>
+    <link href="http://23171580.github.io/2016/06/17/ubuntu_Wine_Remove_Complete/"/>
+    <id>http://23171580.github.io/2016/06/17/ubuntu_Wine_Remove_Complete/</id>
     <published>2016-06-17T08:27:15.000Z</published>
-    <updated>2018-06-17T15:12:40.508Z</updated>
+    <updated>2018-06-18T07:58:25.158Z</updated>
     
     <content type="html"><![CDATA[<pre><code>wine卸载后的菜单清理</code></pre><a id="more"></a><p>wine卸载后的菜单清理</p><p>（1）删除.config/menus目录下的相应文件</p><p>（2）删除.config/menus/applications-merged目录下的相关文件</p><p>（3）打开.config/menus/applications.menu文件，删除文件中与wine有关的内容。</p><p>（4）删除以下三个文件：</p><pre><code>/usr/share/app-install/desktop/wine.desktop/usr/share/app-install/desktop/wineconfig.desktop/usr/share/app-install/desktop/winefish.desktop</code></pre><p>（5）删除下面三个目录下与wine和wine相关的内容：</p><pre><code>~/.local/share/applications~/.local/share/desktop-directories</code></pre>]]></content>
     
@@ -434,6 +434,8 @@ LiveSuit&amp;apos;s &amp;amp; PhoenixSuit&amp;apos;s firmware image unpacker/pac
     
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
+    
+      <category term="ubuntu" scheme="http://23171580.github.io/tags/ubuntu/"/>
     
       <category term="Linux" scheme="http://23171580.github.io/tags/Linux/"/>
     
