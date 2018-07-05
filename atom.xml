@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://23171580.github.io/"/>
-  <updated>2018-07-05T08:49:43.168Z</updated>
+  <updated>2018-07-05T09:05:08.192Z</updated>
   <id>http://23171580.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://23171580.github.io/2018/07/05/windows%E4%BD%BF%E7%94%A8jdk1-7%E4%B8%8E1-8%E5%8F%8C%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E6%96%B9%E6%B3%95/"/>
     <id>http://23171580.github.io/2018/07/05/windows使用jdk1-7与1-8双版本切换方法/</id>
     <published>2018-07-05T08:15:53.000Z</published>
-    <updated>2018-07-05T08:49:43.168Z</updated>
+    <updated>2018-07-05T09:05:08.192Z</updated>
     
     <content type="html"><![CDATA[<pre><code>在windows下配置使用jdk1.7和1.8两个版本</code></pre><a id="more"></a><p>在Oracle的官网下载</p><pre><code>jdk1.7版本</code></pre><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html" title="jdk1.7下载" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html</a></p><pre><code>jdk1.8版本</code></pre><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" title="jdk1.8下载" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p><p>下载后安装到统一的目录下面</p><pre><code>C:\Program Files\Java 的目录2018/07/03  14:20    &lt;DIR&gt;          .2018/07/03  14:20    &lt;DIR&gt;          ..2018/07/02  17:49    &lt;DIR&gt;          jdk1.7.0_802018/07/03  14:17    &lt;DIR&gt;          jdk1.8.0_1722018/07/02  17:49    &lt;DIR&gt;          jre72018/07/03  14:17    &lt;DIR&gt;          jre8</code></pre><p>打开：</p><pre><code>控制面板\系统和安全\系统————&gt;高级系统设置————&gt;环境变量</code></pre><p>系统变量中新建</p><pre><code>JAVA_HOME %JAVA8_HOME%JAVA7_HOME C:\Program Files\Java\jdk1.7.0_80JAVA8_HOME C:\Program Files\Java\jdk1.8.0_172JRE_HOME %JRE8_HOME%JRE7_HOME C:\Program Files\Java\jre7JRE8_HOME C:\Program Files\Java\jre8CLASSPATH .%JAVA_HOME%\lib;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code></pre><p>Path中添加以下变量：</p><pre><code>%JRE_HOME%\BIN%JAVA_HOME%\BIN</code></pre><p>确定保存之后打开命令符窗口查看当前的jdk和jre是1.8版本；<br>使用1.7版本的话，到环境变量中，把以下两项修改：</p><pre><code>JAVA_HOME %JAVA7_HOME%JRE_HOME %JRE7_HOME%</code></pre><p>到文件夹：</p><pre><code>C:\Windows\System32中搜索找到java关键字文件，删除C:\ProgramData\Oracle\Java 找到java关键字文件，删除</code></pre>]]></content>
     
@@ -35,11 +35,11 @@
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
-      <category term="1 jdk" scheme="http://23171580.github.io/tags/1-jdk/"/>
+      <category term="windows" scheme="http://23171580.github.io/tags/windows/"/>
     
-      <category term="2 双版本" scheme="http://23171580.github.io/tags/2-%E5%8F%8C%E7%89%88%E6%9C%AC/"/>
+      <category term="jdk" scheme="http://23171580.github.io/tags/jdk/"/>
     
-      <category term="3 windows" scheme="http://23171580.github.io/tags/3-windows/"/>
+      <category term="双版本" scheme="http://23171580.github.io/tags/%E5%8F%8C%E7%89%88%E6%9C%AC/"/>
     
   </entry>
   
@@ -48,7 +48,7 @@
     <link href="http://23171580.github.io/2018/07/05/maven%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BF%AE%E6%94%B9%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85aliyun%E6%BA%90/"/>
     <id>http://23171580.github.io/2018/07/05/maven本地安装与配置和修改使用国内aliyun源/</id>
     <published>2018-07-05T08:13:47.000Z</published>
-    <updated>2018-07-05T08:57:08.615Z</updated>
+    <updated>2018-07-05T09:05:33.378Z</updated>
     
     <content type="html"><![CDATA[<pre><code>win10安装maven配置</code></pre><a id="more"></a><p>官网下载maven<a href="http://maven.apache.org/download.cgi" title="maven下载" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a>的zip压缩包，下载到本地。</p><p>解压maven到本地的目录中并创建reposity文件夹和settings.xml文件</p><pre><code> C:\maven 的目录2018/07/03  19:47    &lt;DIR&gt;          .2018/07/03  19:47    &lt;DIR&gt;          ..2018/07/03  11:35    &lt;DIR&gt;          apache-maven-3.5.42018/07/05  14:04    &lt;DIR&gt;          repository2018/07/03  19:47             2,346 settings.xml</code></pre><p>在settings.xml中填写内容：</p><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;&lt;pluginGroups /&gt;&lt;proxies /&gt;&lt;servers /&gt;&lt;localRepository&gt;C:/maven/repository&lt;/localRepository&gt;&lt;mirrors&gt;    &lt;mirror&gt;        &lt;id&gt;alimaven&lt;/id&gt;        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        &lt;name&gt;aliyun maven&lt;/name&gt;        &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;    &lt;/mirror&gt;    &lt;mirror&gt;        &lt;id&gt;alimaven&lt;/id&gt;        &lt;name&gt;aliyun maven&lt;/name&gt;        &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;    &lt;/mirror&gt;    &lt;mirror&gt;        &lt;id&gt;central&lt;/id&gt;        &lt;name&gt;Maven Repository Switchboard&lt;/name&gt;        &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;    &lt;/mirror&gt;    &lt;mirror&gt;        &lt;id&gt;repo2&lt;/id&gt;        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;        &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;    &lt;/mirror&gt;    &lt;mirror&gt;        &lt;id&gt;ibiblio&lt;/id&gt;        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;        &lt;url&gt;http://mirrors.ibiblio.org/pub/mirrors/maven2/&lt;/url&gt;    &lt;/mirror&gt;    &lt;mirror&gt;        &lt;id&gt;jboss-public-repository-group&lt;/id&gt;        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        &lt;name&gt;JBoss Public Repository Group&lt;/name&gt;        &lt;url&gt;http://repository.jboss.org/nexus/content/groups/public&lt;/url&gt;    &lt;/mirror&gt;    &lt;mirror&gt;        &lt;id&gt;google-maven-central&lt;/id&gt;        &lt;name&gt;Google Maven Central&lt;/name&gt;        &lt;url&gt;https://maven-central.storage.googleapis.com        &lt;/url&gt;        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;    &lt;/mirror&gt;    &lt;!-- 中央仓库在中国的镜像 --&gt;    &lt;mirror&gt;        &lt;id&gt;maven.net.cn&lt;/id&gt;        &lt;name&gt;oneof the central mirrors in china&lt;/name&gt;        &lt;url&gt;http://maven.net.cn/content/groups/public/&lt;/url&gt;        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;    &lt;/mirror&gt;&lt;/mirrors&gt;&lt;/settings&gt;</code></pre><p>打开控制面板\系统和安全\系统\高级环境设置，环境变量中添加</p><pre><code>M2_HOME C:\maven\apache-maven-3.5.4在Path中添加：%M2_HOME%\bin</code></pre><p>确定，到命令符窗口输入mvn -version查看mvn安装的版本信息。</p><p>这里要到用户目录下的.m2文件夹下面，将settings.xml文件复制一份放在这里</p><p>aliyun source URL<br><a href="http://maven.aliyun.com/nexus/#welcome" title="aliyun" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/#welcome</a></p>]]></content>
     
@@ -62,11 +62,11 @@
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
-      <category term="1 java" scheme="http://23171580.github.io/tags/1-java/"/>
+      <category term="java" scheme="http://23171580.github.io/tags/java/"/>
     
-      <category term="2 maven" scheme="http://23171580.github.io/tags/2-maven/"/>
+      <category term="maven" scheme="http://23171580.github.io/tags/maven/"/>
     
-      <category term="3 aliyun" scheme="http://23171580.github.io/tags/3-aliyun/"/>
+      <category term="aliyun" scheme="http://23171580.github.io/tags/aliyun/"/>
     
   </entry>
   
@@ -75,7 +75,7 @@
     <link href="http://23171580.github.io/2018/07/05/Windows-Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%8D%E4%B8%80%E8%87%B4-%E8%BD%AC/"/>
     <id>http://23171580.github.io/2018/07/05/Windows-Ubuntu双系统时间不一致-转/</id>
     <published>2018-07-05T07:57:51.000Z</published>
-    <updated>2018-07-05T08:00:25.218Z</updated>
+    <updated>2018-07-05T09:05:43.099Z</updated>
     
     <content type="html"><![CDATA[<pre><code>安装双系统win+ubuntu之后启动进入的时间有问题，具体的配置修改方法</code></pre><a id="more"></a><p>在安装Ubuntu和Windows双系统的情况下，Ubuntu的时间总会和Windows的时间相差8小时，原因在于widows认为BIOS时间是本地时间，Ubuntu认为BIOS时间是UTC时间，即协调世界时，(Universal Time Coordinated)英文缩写，是由国际无线电咨询委员会规定和推荐,并由国际时间局(BIH)负责保持的以秒为基础的时间标度。UTC相当于本初子午线(即经度0度)上的平均太阳时，过去曾用格林威治平均时(GMT)来表示.北京时间比UTC时间早8小时，以1999年1月1日0000UTC为例，UTC时间是零点，北京时间为1999年1月1日早上8点整。)，所以我们在时间上面相隔了8个小时。这个时候bios的时间和系统的时间当然是不一致，一个代表 utc 时间，一个代表cst（＋8时区），即上海的时间。</p><h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><h3 id="老版Ubuntu（Ubuntu10左右）："><a href="#老版Ubuntu（Ubuntu10左右）：" class="headerlink" title="老版Ubuntu（Ubuntu10左右）："></a>老版Ubuntu（Ubuntu10左右）：</h3><p>修改/etc/default/rcS文件<br>编辑/etc/default/rcS 将UTC=yes改成UTC=no 。</p><h3 id="新版Ubuntu（Ubuntu16-04）："><a href="#新版Ubuntu（Ubuntu16-04）：" class="headerlink" title="新版Ubuntu（Ubuntu16.04）："></a>新版Ubuntu（Ubuntu16.04）：</h3><p>新版本的Ubuntu使用systemd启动之后，时间也改成了由timedatectl来管理，此方法就不适用了。</p><p>sudo timedatectl set-local-rtc 1<br>重启完成将硬件时间UTC改为CST，双系统时间保持一致。</p><p>先在ubuntu下更新一下时间，确保时间无误：</p><p>sudo apt-get install ntpdate sudo ntpdate time.windows.com<br>然后将时间更新到硬件上：</p><p>sudo hwclock –localtime –systohc<br>重新进入windows10，发现时间恢复正常了！</p><h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><h3 id="在Windows下进行如下修改："><a href="#在Windows下进行如下修改：" class="headerlink" title="在Windows下进行如下修改："></a>在Windows下进行如下修改：</h3><p>在注册表项：</p><p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\<br>下中添加一项数据类型为REG_DWORD，名称为RealTimeIsUniversal，值设为1 的键值。<br>或者<br>开 始-&gt;运行-&gt;CMD，在命令行中输入下面命令并回车</p><p>Reg add KLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1</p>]]></content>
     
@@ -89,11 +89,11 @@
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
-      <category term="1 windows" scheme="http://23171580.github.io/tags/1-windows/"/>
+      <category term="ubuntu" scheme="http://23171580.github.io/tags/ubuntu/"/>
     
-      <category term="2 ubuntu" scheme="http://23171580.github.io/tags/2-ubuntu/"/>
+      <category term="windows" scheme="http://23171580.github.io/tags/windows/"/>
     
-      <category term="3 双系统时间问题" scheme="http://23171580.github.io/tags/3-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E9%97%AE%E9%A2%98/"/>
+      <category term="双系统时间问题" scheme="http://23171580.github.io/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
@@ -102,7 +102,7 @@
     <link href="http://23171580.github.io/2018/07/05/ZIP%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85MySQL8.0.11%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%8E%E9%85%8D%E7%BD%AE%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-Win10/"/>
     <id>http://23171580.github.io/2018/07/05/ZIP压缩包方式安装MySQL8.0.11的过程与配置注意事项-Win10/</id>
     <published>2018-07-05T07:54:14.000Z</published>
-    <updated>2018-07-05T07:57:01.644Z</updated>
+    <updated>2018-07-05T09:05:51.459Z</updated>
     
     <content type="html"><![CDATA[<pre><code>在windows下安装配置mysql8.0.11</code></pre><a id="more"></a><p>#解压zip压缩包,进入bin目录中<br>cd mysql\bin</p><p>#使用my.ini预配置文件初始化MySQL,(–initialize参数会生成随机密码)<br>mysqld –defaults-file=D:\mysql\my.ini –initialize –console</p><p>#windows下初始化报错 Found option without preceding group in config file D:\mysql\my.ini at line 1!<br>解决：将my.ini文件另存为ASIC格式即可</p><p>#安装MySQL服务<br>mysqld install MySQL-8 #（“MySQL-8”为自定义服务名称）</p><p>#移除MySQL服务<br>sc delete MySql<br>mysqld remove</p><p>#启动MySQL服务器<br>net start mysql</p><p>#停止MySQL服务器<br>net stop mysql</p><p>#初次root连接MySQL服务器，使用随机密码<br>mysql -u root -p</p><p>#mysql8.0连接出现：mysql8 ：客户端连接caching-sha2-password问题。<br>ALTER USER ‘root‘@’localhost’ IDENTIFIED BY ‘123’ PASSWORD EXPIRE NEVER;#（该命令可用于自定义修改密码）<br>ALTER USER ‘root‘@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘123’;<br>FLUSH PRIVILEGES; #刷新权限</p><p>#如果知道root密码，使用以下命令修改密码：<br>mysqladmin -u root -p password 123<br>（只需修改新密码为自己想要修改的密码，之后回车输入原密码，系统运行后新密码修改成功）</p><p>#查看当前basedir或者datadir的路径<br>show global variables like ‘sedir%’;<br>+—————+———–+<br>| Variable_name | Value     |<br>+—————+———–+<br>| basedir       | D:\mysql\ |<br>+—————+———–+<br>1 row in set, 1 warning (0.01 sec)</p><p>mysql&gt; show global variables like ‘tadir%’;<br>+—————+—————-+<br>| Variable_name | Value          |<br>+—————+—————-+<br>| datadir       | D:\mysql\data\ |<br>+—————+—————-+<br>1 row in set, 1 warning (0.00 sec)</p>]]></content>
     
@@ -114,9 +114,9 @@
     </summary>
     
     
-      <category term="1 mysql8.0.11" scheme="http://23171580.github.io/tags/1-mysql8-0-11/"/>
+      <category term="windows" scheme="http://23171580.github.io/tags/windows/"/>
     
-      <category term="2 windows" scheme="http://23171580.github.io/tags/2-windows/"/>
+      <category term="mysql8.0.11" scheme="http://23171580.github.io/tags/mysql8-0-11/"/>
     
   </entry>
   
@@ -125,7 +125,7 @@
     <link href="http://23171580.github.io/2018/07/05/eolinker-os%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA%E4%BD%BF%E7%94%A8/"/>
     <id>http://23171580.github.io/2018/07/05/eolinker-os本地搭建使用/</id>
     <published>2018-07-05T07:44:54.000Z</published>
-    <updated>2018-07-05T08:15:03.157Z</updated>
+    <updated>2018-07-05T09:05:22.026Z</updated>
     
     <content type="html"><![CDATA[<pre><code>在本地环境下搭建eolinker-os，version：4.0</code></pre><a id="more"></a><p>在官方的github<a href="https://github.com/eolinker/eoLinker-AMS-Lite-For-Java" title="Java-eolinker-os-4.0" target="_blank" rel="noopener">https://github.com/eolinker/eoLinker-AMS-Lite-For-Java</a>下载最新的4.0版本源码；</p><p>本地解压到固定目录下；</p><p>找到目录下的database文件夹，先到navicat里面新建一个数据库，名称自定，设置utf8编码方式，打开新创建的数据库，导入database里面的sql文件；</p><p>进入到backend_source_code文件夹下面，使用命令：</p><pre><code>mvn sprint-boot:run</code></pre><p>启动项目。</p><p>在项目文件下的config文件夹中，有数据库连接的设置参数。</p><p>本地使用的数据库是8.0.11版本，启动后会显示</p><pre><code>mysql-connector-java连接器版本有问题</code></pre><p>这里要去pom.xml文件下修改（添加上版本号）</p><pre><code>&lt;dependency&gt;    &lt;groupId&gt;mysql&lt;/groupId&gt;    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;    &lt;version&gt;8.0.11&lt;/version&gt;&lt;/dependency&gt;</code></pre><p>添加完成之后重新启动项目</p><p>这时会有报错</p><pre><code>Unknown system variable &apos;tx_isolation&apos;</code></pre><p>需要去修改config文件夹下面的setting.properties（在dbURL末尾添加：&amp;serverTimezone\=GMT%2B8）</p><pre><code>#\u914D\u7F6E\u6587\u4EF6#Thu Jul 05 15:17:24 CST 2018allowRegister=trueport=8080dbURL=jdbc\:mysql\://127.0.0.1\:3306/eolinker_os?characterEncoding\=UTF-8&amp;serverTimezone\=GMT%2B8language=zh-cnversion=v4.0webSitename=eoLinker opensource projectdbUser=rootallowUpdate=truedbPassword=123</code></pre><p>此时再次重启项目，即可正常运行。</p>]]></content>
     
@@ -139,11 +139,11 @@
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
-      <category term="1 eolinker" scheme="http://23171580.github.io/tags/1-eolinker/"/>
+      <category term="java" scheme="http://23171580.github.io/tags/java/"/>
     
-      <category term="2 java" scheme="http://23171580.github.io/tags/2-java/"/>
+      <category term="eolinker" scheme="http://23171580.github.io/tags/eolinker/"/>
     
-      <category term="3 maven" scheme="http://23171580.github.io/tags/3-maven/"/>
+      <category term="maven" scheme="http://23171580.github.io/tags/maven/"/>
     
   </entry>
   

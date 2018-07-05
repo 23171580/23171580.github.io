@@ -8,9 +8,9 @@
         <category>日志</category>
       </categories>
       <tags>
-        <tag>1 jdk</tag>
-        <tag>2 双版本</tag>
-        <tag>3 windows</tag>
+        <tag>windows</tag>
+        <tag>jdk</tag>
+        <tag>双版本</tag>
       </tags>
   </entry>
   <entry>
@@ -21,9 +21,9 @@
         <category>日志</category>
       </categories>
       <tags>
-        <tag>1 java</tag>
-        <tag>2 maven</tag>
-        <tag>3 aliyun</tag>
+        <tag>java</tag>
+        <tag>maven</tag>
+        <tag>aliyun</tag>
       </tags>
   </entry>
   <entry>
@@ -34,9 +34,9 @@
         <category>日志</category>
       </categories>
       <tags>
-        <tag>1 windows</tag>
-        <tag>2 ubuntu</tag>
-        <tag>3 双系统时间问题</tag>
+        <tag>ubuntu</tag>
+        <tag>windows</tag>
+        <tag>双系统时间问题</tag>
       </tags>
   </entry>
   <entry>
@@ -44,8 +44,8 @@
     <url>%2F2018%2F07%2F05%2FZIP%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85MySQL8.0.11%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%8E%E9%85%8D%E7%BD%AE%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-Win10%2F</url>
     <content type="text"><![CDATA[在windows下安装配置mysql8.0.11 #解压zip压缩包,进入bin目录中cd mysql\bin #使用my.ini预配置文件初始化MySQL,(–initialize参数会生成随机密码)mysqld –defaults-file=D:\mysql\my.ini –initialize –console #windows下初始化报错 Found option without preceding group in config file D:\mysql\my.ini at line 1!解决：将my.ini文件另存为ASIC格式即可 #安装MySQL服务mysqld install MySQL-8 #（“MySQL-8”为自定义服务名称） #移除MySQL服务sc delete MySqlmysqld remove #启动MySQL服务器net start mysql #停止MySQL服务器net stop mysql #初次root连接MySQL服务器，使用随机密码mysql -u root -p #mysql8.0连接出现：mysql8 ：客户端连接caching-sha2-password问题。ALTER USER ‘root‘@’localhost’ IDENTIFIED BY ‘123’ PASSWORD EXPIRE NEVER;#（该命令可用于自定义修改密码）ALTER USER ‘root‘@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘123’;FLUSH PRIVILEGES; #刷新权限 #如果知道root密码，使用以下命令修改密码：mysqladmin -u root -p password 123（只需修改新密码为自己想要修改的密码，之后回车输入原密码，系统运行后新密码修改成功） #查看当前basedir或者datadir的路径show global variables like ‘sedir%’;+—————+———–+| Variable_name | Value |+—————+———–+| basedir | D:\mysql\ |+—————+———–+1 row in set, 1 warning (0.01 sec) mysql&gt; show global variables like ‘tadir%’;+—————+—————-+| Variable_name | Value |+—————+—————-+| datadir | D:\mysql\data\ |+—————+—————-+1 row in set, 1 warning (0.00 sec)]]></content>
       <tags>
-        <tag>1 mysql8.0.11</tag>
-        <tag>2 windows</tag>
+        <tag>windows</tag>
+        <tag>mysql8.0.11</tag>
       </tags>
   </entry>
   <entry>
@@ -56,9 +56,9 @@
         <category>日志</category>
       </categories>
       <tags>
-        <tag>1 eolinker</tag>
-        <tag>2 java</tag>
-        <tag>3 maven</tag>
+        <tag>java</tag>
+        <tag>eolinker</tag>
+        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
