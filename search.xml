@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[EFI方式安装Win7_64位系统]]></title>
+    <url>%2F2018%2F07%2F06%2FEFI%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Win7-64%E4%BD%8D%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[使用EFI方式安装win7系统 64位的win7旗舰版系统镜像，解压到格式化成FAT32格式的U盘中，把EFI SHELL(x64).rar解压到U盘目录下。 1.启动电脑，进入pe模式，使用DiskGenius将待安装系统的硬盘格式化成gpt格式，建立esp分区，系统安装分区（50-60GB即可）。 2.重启系统，进入BIOS模式，找到“Launch EFI shell from filesystem device”进入。 进入：Shell&gt; 输入：fs0: 列出目录下文件目录：ls 输入：bootmgfw.efi 进入win7安装界面. 接下来按照传统安装方式，选择系统安装的目录，将新系统安装完成，重启即可。]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>Win7</tag>
+        <tag>EFI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[windows使用jdk1.7与1.8双版本切换方法]]></title>
     <url>%2F2018%2F07%2F05%2Fwindows%E4%BD%BF%E7%94%A8jdk1-7%E4%B8%8E1-8%E5%8F%8C%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[在windows下配置使用jdk1.7和1.8两个版本 在Oracle的官网下载 jdk1.7版本 http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html jdk1.8版本 http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 下载后安装到统一的目录下面 C:\Program Files\Java 的目录 2018/07/03 14:20 &lt;DIR&gt; . 2018/07/03 14:20 &lt;DIR&gt; .. 2018/07/02 17:49 &lt;DIR&gt; jdk1.7.0_80 2018/07/03 14:17 &lt;DIR&gt; jdk1.8.0_172 2018/07/02 17:49 &lt;DIR&gt; jre7 2018/07/03 14:17 &lt;DIR&gt; jre8 打开： 控制面板\系统和安全\系统————&gt;高级系统设置————&gt;环境变量 系统变量中新建 JAVA_HOME %JAVA8_HOME% JAVA7_HOME C:\Program Files\Java\jdk1.7.0_80 JAVA8_HOME C:\Program Files\Java\jdk1.8.0_172 JRE_HOME %JRE8_HOME% JRE7_HOME C:\Program Files\Java\jre7 JRE8_HOME C:\Program Files\Java\jre8 CLASSPATH .%JAVA_HOME%\lib;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar Path中添加以下变量： %JRE_HOME%\BIN %JAVA_HOME%\BIN 确定保存之后打开命令符窗口查看当前的jdk和jre是1.8版本；使用1.7版本的话，到环境变量中，把以下两项修改： JAVA_HOME %JAVA7_HOME% JRE_HOME %JRE7_HOME% 到文件夹： C:\Windows\System32中搜索找到java关键字文件，删除 C:\ProgramData\Oracle\Java 找到java关键字文件，删除]]></content>
