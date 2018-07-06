@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="使用EFI方式安装win7系统">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-06T09:39:24.132Z">
+<meta property="og:updated_time" content="2018-07-06T09:44:47.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EFI方式安装Win7_64位系统">
 <meta name="twitter:description" content="使用EFI方式安装win7系统">
@@ -393,7 +393,7 @@
                 
               
 
-              <time title="创建时间：2018-07-06 17:27:22 / 修改时间：17:39:24" itemprop="dateCreated datePublished" datetime="2018-07-06T17:27:22+08:00">2018-07-06</time>
+              <time title="创建时间：2018-07-06 17:27:22 / 修改时间：17:44:47" itemprop="dateCreated datePublished" datetime="2018-07-06T17:27:22+08:00">2018-07-06</time>
             
 
             
@@ -462,7 +462,24 @@
 输入：bootmgfw.efi
 进入win7安装界面.
 </code></pre><p>接下来按照传统安装方式，选择系统安装的目录，将新系统安装完成，重启即可。</p>
-
+<p>cmd界面diskpart工具使用方法：</p>
+<p>使用diskpart工具建立GPT分区的步骤：</p>
+<pre><code>在选择分区界面，按下SHIFT+F10调出命令提示符
+键入：diskpart
+打开diskpart工具
+★选择目标磁盘
+list disk--------------------列出系统拥有的磁盘
+select disk 0 --------------选择0号磁盘，请根据磁盘大小，自行判断你的目标磁盘
+★清空目标磁盘，并转换为GPT格式
+clean-------------------------清除磁盘,该命令会抹去磁盘上所有数据
+convert gpt------------------将磁盘转换为GPT格式
+list partition-----------------列出磁盘上的分区
+★建立EFI分区及系统安装分区
+create partition efi size=100---------------建立EFI分区，大小为100M，如果打算使用该分区引导MAC系统，建议大小200M以上
+create partition msr size=128--------------建立MSR分区，微软默认建立的话，大小是128M
+create partition primary size=50000-------建立主分区，大小为50000M，请根据自己需求调整，该分区用来安装win7
+list partition---------------------------------列出磁盘上的分区
+</code></pre>
       
     </div>
 
@@ -804,7 +821,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共11.9k字</span>
+  <span class="post-count">博客全站共12.2k字</span>
 </div>
 
         
