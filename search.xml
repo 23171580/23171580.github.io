@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[windows_add_admin_cmd]]></title>
+    <url>%2F2018%2F07%2F16%2Fwindows-add-admin-cmd%2F</url>
+    <content type="text"><![CDATA[在windows10上面为右键添加管理员cmd选项 添加：创建：添加右键管理员CMD.reg Windows Registry Editor Version 5.00 [-HKEY_CLASSES_ROOT\Directory\shell\runas] [HKEY_CLASSES_ROOT\Directory\shell\runas] @=&quot;管理员命令符&quot; &quot;HasLUAShield&quot;=&quot;&quot; [HKEY_CLASSES_ROOT\Directory\shell\runas\command] @=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot; [-HKEY_CLASSES_ROOT\Directory\Background\shell\runas] [HKEY_CLASSES_ROOT\Directory\Background\shell\runas] @=&quot;管理员命令符&quot; &quot;HasLUAShield&quot;=&quot;&quot; [HKEY_CLASSES_ROOT\Directory\Background\shell\runas\command] @=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot; [-HKEY_CLASSES_ROOT\Drive\shell\runas] [HKEY_CLASSES_ROOT\Drive\shell\runas] @=&quot;管理员命令符&quot; &quot;HasLUAShield&quot;=&quot;&quot; [HKEY_CLASSES_ROOT\Drive\shell\runas\command] @=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot; 删除：创建：移除右键管理员CMD.reg Windows Registry Editor Version 5.00 [-HKEY_CLASSES_ROOT\Directory\shell\runas] [-HKEY_CLASSES_ROOT\Directory\Background\shell\runas] [-HKEY_CLASSES_ROOT\Drive\shell\runas]]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>管理员</tag>
+        <tag>cmd</tag>
+        <tag>右键添加删除选项</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[EFI方式安装Win7_64位系统]]></title>
     <url>%2F2018%2F07%2F06%2FEFI%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Win7-64%E4%BD%8D%E7%B3%BB%E7%BB%9F%2F</url>
     <content type="text"><![CDATA[使用EFI方式安装win7系统 64位的win7旗舰版系统镜像，解压到格式化成FAT32格式的U盘中，把EFI SHELL(x64).rar解压到U盘目录下。 1.启动电脑，进入pe模式，使用DiskGenius将待安装系统的硬盘格式化成gpt格式，建立esp分区，系统安装分区（50-60GB即可）。 2.重启系统，进入BIOS模式，找到“Launch EFI shell from filesystem device”进入。 进入：Shell&gt; 输入：fs0: 列出目录下文件目录：ls 输入：bootmgfw.efi 进入win7安装界面. 接下来按照传统安装方式，选择系统安装的目录，将新系统安装完成，重启即可。 cmd界面diskpart工具使用方法： 使用diskpart工具建立GPT分区的步骤： 在选择分区界面，按下SHIFT+F10调出命令提示符 键入：diskpart 打开diskpart工具 ★选择目标磁盘 list disk--------------------列出系统拥有的磁盘 select disk 0 --------------选择0号磁盘，请根据磁盘大小，自行判断你的目标磁盘 ★清空目标磁盘，并转换为GPT格式 clean-------------------------清除磁盘,该命令会抹去磁盘上所有数据 convert gpt------------------将磁盘转换为GPT格式 list partition-----------------列出磁盘上的分区 ★建立EFI分区及系统安装分区 create partition efi size=100---------------建立EFI分区，大小为100M，如果打算使用该分区引导MAC系统，建议大小200M以上 create partition msr size=128--------------建立MSR分区，微软默认建立的话，大小是128M create partition primary size=50000-------建立主分区，大小为50000M，请根据自己需求调整，该分区用来安装win7 list partition---------------------------------列出磁盘上的分区]]></content>
@@ -68,8 +82,8 @@
         <category>日志</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>eolinker</tag>
+        <tag>java</tag>
         <tag>maven</tag>
       </tags>
   </entry>

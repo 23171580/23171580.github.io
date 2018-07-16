@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://23171580.github.io/"/>
-  <updated>2018-07-06T09:44:47.801Z</updated>
+  <updated>2018-07-16T03:15:18.301Z</updated>
   <id>http://23171580.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>windows_add_admin_cmd</title>
+    <link href="http://23171580.github.io/2018/07/16/windows-add-admin-cmd/"/>
+    <id>http://23171580.github.io/2018/07/16/windows-add-admin-cmd/</id>
+    <published>2018-07-16T03:11:12.000Z</published>
+    <updated>2018-07-16T03:15:18.301Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>在windows10上面为右键添加管理员cmd选项</code></pre><a id="more"></a><h1 id="添加："><a href="#添加：" class="headerlink" title="添加："></a>添加：</h1><p>创建：添加右键管理员CMD.reg</p><pre><code>Windows Registry Editor Version 5.00[-HKEY_CLASSES_ROOT\Directory\shell\runas][HKEY_CLASSES_ROOT\Directory\shell\runas]@=&quot;管理员命令符&quot;&quot;HasLUAShield&quot;=&quot;&quot;[HKEY_CLASSES_ROOT\Directory\shell\runas\command]@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;[-HKEY_CLASSES_ROOT\Directory\Background\shell\runas][HKEY_CLASSES_ROOT\Directory\Background\shell\runas]@=&quot;管理员命令符&quot;&quot;HasLUAShield&quot;=&quot;&quot;[HKEY_CLASSES_ROOT\Directory\Background\shell\runas\command]@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;[-HKEY_CLASSES_ROOT\Drive\shell\runas][HKEY_CLASSES_ROOT\Drive\shell\runas]@=&quot;管理员命令符&quot;&quot;HasLUAShield&quot;=&quot;&quot;[HKEY_CLASSES_ROOT\Drive\shell\runas\command]@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;</code></pre><h1 id="删除："><a href="#删除：" class="headerlink" title="删除："></a>删除：</h1><p>创建：移除右键管理员CMD.reg</p><pre><code>Windows Registry Editor Version 5.00[-HKEY_CLASSES_ROOT\Directory\shell\runas][-HKEY_CLASSES_ROOT\Directory\Background\shell\runas][-HKEY_CLASSES_ROOT\Drive\shell\runas]</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;在windows10上面为右键添加管理员cmd选项
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
+    
+    
+      <category term="windows" scheme="http://23171580.github.io/tags/windows/"/>
+    
+      <category term="管理员" scheme="http://23171580.github.io/tags/%E7%AE%A1%E7%90%86%E5%91%98/"/>
+    
+      <category term="cmd" scheme="http://23171580.github.io/tags/cmd/"/>
+    
+      <category term="右键添加删除选项" scheme="http://23171580.github.io/tags/%E5%8F%B3%E9%94%AE%E6%B7%BB%E5%8A%A0%E5%88%A0%E9%99%A4%E9%80%89%E9%A1%B9/"/>
+    
+  </entry>
   
   <entry>
     <title>EFI方式安装Win7_64位系统</title>
@@ -164,9 +193,9 @@
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
-      <category term="java" scheme="http://23171580.github.io/tags/java/"/>
-    
       <category term="eolinker" scheme="http://23171580.github.io/tags/eolinker/"/>
+    
+      <category term="java" scheme="http://23171580.github.io/tags/java/"/>
     
       <category term="maven" scheme="http://23171580.github.io/tags/maven/"/>
     
