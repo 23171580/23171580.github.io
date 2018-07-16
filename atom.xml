@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://23171580.github.io/"/>
-  <updated>2018-07-16T03:30:21.090Z</updated>
+  <updated>2018-07-16T08:04:02.539Z</updated>
   <id>http://23171580.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Xmind8_windows_ubuntu_setup_crack</title>
+    <link href="http://23171580.github.io/2018/07/16/Xmind8-windows-ubuntu-setup-crack/"/>
+    <id>http://23171580.github.io/2018/07/16/Xmind8-windows-ubuntu-setup-crack/</id>
+    <published>2018-07-16T07:47:32.000Z</published>
+    <updated>2018-07-16T08:04:02.539Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>ubuntu和windows下面安装xmind8以及破解。</code></pre><a id="more"></a><p>#windows<br>首先，到官网下载安装包：</p><pre><code>windows：xmind-8-update7-windows.exelinux：xmind-8-update7-linux.zip</code></pre><p>下载之后，windows下直接双击exe文件，安装即可。<br>安装完成后，打开/Windows/System32/drivers/etc文件，在文件最后添加上：</p><pre><code>127.0.0.1 www.xmind.net</code></pre><p>打开安装目录，把XMindCrack.jar文件复制到安装目录下面；<br>编辑XMind.ini文件，在文件最后添加上：</p><pre><code>-javaagent:C:/Program Files (x86)/XMind/XMindCrack.jar</code></pre><p>保存之后，打开xmind8应用，在帮助里找到序列号填写：</p><pre><code>邮箱：x@iroader 序列号： XAka34A2rVRYJ4XBIU35UZMUEEF64CMMIYZCK2FZZUQNODEKUHGJLFMSLIQMQUCUBXRENLK6NZL37JXP4PZXQFILMQ2RG5R7G4QNDO3PSOEUBOCDRYSSXZGRARV6MGA33TN2AMUBHEL4FXMWYTTJDEINJXUAV4BAYKBDCZQWVF3LWYXSDCXY546U3NBGOI3ZPAP2SO3CSQFNB7VVIY123456789012345</code></pre><p>即可完成激活。</p><p>#linux<br>解压压缩包xmind-8-update7-linux.zip<br>打开解压文件夹，执行：</p><pre><code>sudo ./setup.sh</code></pre><p>提示：Done之后，安装完成。<br>复制一个XMindCrack.jar到文件夹中；<br>打开解压文件夹下面的XMind_amd64，修改XMind.ini，在文件末尾添加：</p><pre><code>-javaagent:/home/xxx/xmind-8-update7-linux/XMindCrack.jar（xxx替换成个人放置文件夹的路径）</code></pre><p>之后，打开/etc/hosts文件，在末尾处添加</p><pre><code>127.0.0.1 www.xmind.net</code></pre><p>保存后，打开XMind_amd64中的XMind文件，在序列号填写中复制粘贴：</p><pre><code>邮箱：x@iroader 序列号： XAka34A2rVRYJ4XBIU35UZMUEEF64CMMIYZCK2FZZUQNODEKUHGJLFMSLIQMQUCUBXRENLK6NZL37JXP4PZXQFILMQ2RG5R7G4QNDO3PSOEUBOCDRYSSXZGRARV6MGA33TN2AMUBHEL4FXMWYTTJDEINJXUAV4BAYKBDCZQWVF3LWYXSDCXY546U3NBGOI3ZPAP2SO3CSQFNB7VVIY123456789012345</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;ubuntu和windows下面安装xmind8以及破解。
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
+    
+    
+      <category term="ubuntu" scheme="http://23171580.github.io/tags/ubuntu/"/>
+    
+      <category term="windows" scheme="http://23171580.github.io/tags/windows/"/>
+    
+      <category term="xmind8" scheme="http://23171580.github.io/tags/xmind8/"/>
+    
+  </entry>
   
   <entry>
     <title>git换行符LF与CRLF转换问题</title>
@@ -216,9 +243,9 @@
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
-      <category term="java" scheme="http://23171580.github.io/tags/java/"/>
-    
       <category term="eolinker" scheme="http://23171580.github.io/tags/eolinker/"/>
+    
+      <category term="java" scheme="http://23171580.github.io/tags/java/"/>
     
       <category term="maven" scheme="http://23171580.github.io/tags/maven/"/>
     
