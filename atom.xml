@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://23171580.github.io/"/>
-  <updated>2018-07-16T08:04:02.539Z</updated>
+  <updated>2018-07-16T09:11:17.542Z</updated>
   <id>http://23171580.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>android_adb_install_循环安装apk文件</title>
+    <link href="http://23171580.github.io/2018/07/16/android-adb-install-%E5%BE%AA%E7%8E%AF%E5%AE%89%E8%A3%85apk%E6%96%87%E4%BB%B6/"/>
+    <id>http://23171580.github.io/2018/07/16/android-adb-install-循环安装apk文件/</id>
+    <published>2018-07-16T09:08:48.000Z</published>
+    <updated>2018-07-16T09:11:17.542Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>adb 工具循环为手机自动安装apk文件</code></pre><a id="more"></a><p>创建文件autoinstall.bat：<br>填写：</p><pre><code>@ECHO off  @REM 将adb.exe添加到PATH中  ECHO 初始化…  @SET PATH=%PATH%;%CD%\Adb  @REM SET PATH  @REM 无限循环的标签  :LOOP  ECHO 等待您插入手机…  adb wait-for-device  @REM 循环安装本目录下的APK文件  FOR %%i IN (*.apk) DO (   ECHO 正在安装：%%i  adb install &quot;%%i&quot;  )  ECHO 安装好了；换一台手机吧！！！  PAUSE  GOTO LOOP  @ECHO on  </code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;adb 工具循环为手机自动安装apk文件
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
+    
+    
+      <category term="安卓apk安装" scheme="http://23171580.github.io/tags/%E5%AE%89%E5%8D%93apk%E5%AE%89%E8%A3%85/"/>
+    
+      <category term="adb_install" scheme="http://23171580.github.io/tags/adb-install/"/>
+    
+  </entry>
   
   <entry>
     <title>Xmind8_windows_ubuntu_setup_crack</title>
@@ -243,9 +268,9 @@
       <category term="日志" scheme="http://23171580.github.io/categories/journal/"/>
     
     
-      <category term="eolinker" scheme="http://23171580.github.io/tags/eolinker/"/>
-    
       <category term="java" scheme="http://23171580.github.io/tags/java/"/>
+    
+      <category term="eolinker" scheme="http://23171580.github.io/tags/eolinker/"/>
     
       <category term="maven" scheme="http://23171580.github.io/tags/maven/"/>
     

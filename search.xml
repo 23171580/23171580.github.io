@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[android_adb_install_循环安装apk文件]]></title>
+    <url>%2F2018%2F07%2F16%2Fandroid-adb-install-%E5%BE%AA%E7%8E%AF%E5%AE%89%E8%A3%85apk%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[adb 工具循环为手机自动安装apk文件 创建文件autoinstall.bat：填写： @ECHO off @REM 将adb.exe添加到PATH中 ECHO 初始化… @SET PATH=%PATH%;%CD%\Adb @REM SET PATH @REM 无限循环的标签 :LOOP ECHO 等待您插入手机… adb wait-for-device @REM 循环安装本目录下的APK文件 FOR %%i IN (*.apk) DO ( ECHO 正在安装：%%i adb install &quot;%%i&quot; ) ECHO 安装好了；换一台手机吧！！！ PAUSE GOTO LOOP @ECHO on]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>安卓apk安装</tag>
+        <tag>adb_install</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Xmind8_windows_ubuntu_setup_crack]]></title>
     <url>%2F2018%2F07%2F16%2FXmind8-windows-ubuntu-setup-crack%2F</url>
     <content type="text"><![CDATA[ubuntu和windows下面安装xmind8以及破解。 #windows首先，到官网下载安装包： windows：xmind-8-update7-windows.exe linux：xmind-8-update7-linux.zip 下载之后，windows下直接双击exe文件，安装即可。安装完成后，打开/Windows/System32/drivers/etc文件，在文件最后添加上： 127.0.0.1 www.xmind.net 打开安装目录，把XMindCrack.jar文件复制到安装目录下面；编辑XMind.ini文件，在文件最后添加上： -javaagent:C:/Program Files (x86)/XMind/XMindCrack.jar 保存之后，打开xmind8应用，在帮助里找到序列号填写： 邮箱：x@iroader 序列号： XAka34A2rVRYJ4XBIU35UZMUEEF64CMMIYZCK2FZZUQNODEKUHGJLFMSLIQMQUCUBXRENLK6NZL37JXP4PZXQFILMQ2RG5R7G4QNDO3PSOEUBOCDRYSSXZGRARV6MGA33TN2AMUBHEL4FXMWYTTJDEINJXUAV4BAYKBDCZQWVF3LWYXSDCXY546U3NBGOI3ZPAP2SO3CSQFNB7VVIY123456789012345 即可完成激活。 #linux解压压缩包xmind-8-update7-linux.zip打开解压文件夹，执行： sudo ./setup.sh 提示：Done之后，安装完成。复制一个XMindCrack.jar到文件夹中；打开解压文件夹下面的XMind_amd64，修改XMind.ini，在文件末尾添加： -javaagent:/home/xxx/xmind-8-update7-linux/XMindCrack.jar （xxx替换成个人放置文件夹的路径） 之后，打开/etc/hosts文件，在末尾处添加 127.0.0.1 www.xmind.net 保存后，打开XMind_amd64中的XMind文件，在序列号填写中复制粘贴： 邮箱：x@iroader 序列号： XAka34A2rVRYJ4XBIU35UZMUEEF64CMMIYZCK2FZZUQNODEKUHGJLFMSLIQMQUCUBXRENLK6NZL37JXP4PZXQFILMQ2RG5R7G4QNDO3PSOEUBOCDRYSSXZGRARV6MGA33TN2AMUBHEL4FXMWYTTJDEINJXUAV4BAYKBDCZQWVF3LWYXSDCXY546U3NBGOI3ZPAP2SO3CSQFNB7VVIY123456789012345]]></content>
@@ -106,8 +118,8 @@
         <category>日志</category>
       </categories>
       <tags>
-        <tag>eolinker</tag>
         <tag>java</tag>
+        <tag>eolinker</tag>
         <tag>maven</tag>
       </tags>
   </entry>
