@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="win10安装maven配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-05T09:05:33.378Z">
+<meta property="og:updated_time" content="2018-10-15T07:41:54.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven本地安装与配置和修改使用国内aliyun源">
 <meta name="twitter:description" content="win10安装maven配置">
@@ -393,12 +393,24 @@
                 
               
 
-              <time title="创建时间：2018-07-05 16:13:47 / 修改时间：17:05:33" itemprop="dateCreated datePublished" datetime="2018-07-05T16:13:47+08:00">2018-07-05</time>
+              <time title="创建时间：2018-07-05 16:13:47" itemprop="dateCreated datePublished" datetime="2018-07-05T16:13:47+08:00">2018-07-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-15 15:41:54" itemprop="dateModified" datetime="2018-10-15T15:41:54+08:00">2018-10-15</time>
               
             
           </span>
@@ -526,9 +538,12 @@ xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apa
 &lt;/mirrors&gt;
 &lt;/settings&gt;
 </code></pre><p>打开控制面板\系统和安全\系统\高级环境设置，环境变量中添加</p>
-<pre><code>M2_HOME C:\maven\apache-maven-3.5.4
+<pre><code>MAVEN_HOME C:\maven\apache-maven-3.5.4
 在Path中添加：
-%M2_HOME%\bin
+%MAVEN_HOME%\bin
+
+本地仓库修改位置需要添加环境变量：
+M2_REPO C:/maven/repository
 </code></pre><p>确定，到命令符窗口输入mvn -version查看mvn安装的版本信息。</p>
 <p>这里要到用户目录下的.m2文件夹下面，将settings.xml文件复制一份放在这里</p>
 <p>aliyun source URL<br><a href="http://maven.aliyun.com/nexus/#welcome" title="aliyun" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/#welcome</a></p>
@@ -553,7 +568,7 @@ xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apa
   <p><span>本文标题:</span><a href="/2018/07/05/maven本地安装与配置和修改使用国内aliyun源/">maven本地安装与配置和修改使用国内aliyun源</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Sui 的个人博客">Sui</a></p>
   <p><span>发布时间:</span>2018年07月05日 - 16:07</p>
-  <p><span>最后更新:</span>2018年07月05日 - 17:07</p>
+  <p><span>最后更新:</span>2018年10月15日 - 15:10</p>
   <p><span>原始链接:</span><a href="/2018/07/05/maven本地安装与配置和修改使用国内aliyun源/" title="maven本地安装与配置和修改使用国内aliyun源">http://23171580.github.io/2018/07/05/maven本地安装与配置和修改使用国内aliyun源/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://23171580.github.io/2018/07/05/maven本地安装与配置和修改使用国内aliyun源/"  aria-label="复制成功！"></i></span>
   </p>
